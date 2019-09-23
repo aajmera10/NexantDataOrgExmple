@@ -1,0 +1,6 @@
+<aura:documentation>
+	<aura:description>Documentation</aura:description>
+	<aura:example name="ExampleName" ref="exampleComponentName" label="Label">
+		DocumentUpload component is a generic component for handling file upload and related object creation
+	</aura:example>
+</aura:documentation>

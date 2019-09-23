@@ -1,0 +1,4 @@
+<aura:component description="ManageSubscriptionButton" implements="force:appHostable,flexipage:availableForAllPageTypes,force:lightningQuickAction,forceCommunity:availableForAllPageTypes" access="global">
+    <lightning:button class="slds-button slds-button_brand" type="button" label="Manage subscription"
+                      onclick="{!c.goToSubscription}"/>
+</aura:component>

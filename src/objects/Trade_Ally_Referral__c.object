@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Assignment_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Assignment Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Converted_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Converted Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Program__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Program</label>
+        <referenceTo>Program__c</referenceTo>
+        <relationshipLabel>Trade Ally Referrals</relationshipLabel>
+        <relationshipName>Trade_Ally_Referrals</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Referral_Age__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(
+    ISNULL(Assignment_Date__c),
+    &apos;&apos;,
+    IF(
+        ISNULL(Converted_Date__c),
+        IF(
+            Assignment_Date__c + 9 &gt;=  TODAY(),
+            IMAGE(&apos;/img/samples/flag_green.gif&apos;,&apos;Green&apos;),
+            IF (
+                Assignment_Date__c + 29 &gt;= TODAY(),
+                IMAGE(&apos;/img/samples/flag_yellow.gif&apos;,&apos;Yellow&apos;),
+                IMAGE(&apos;/img/samples/flag_red.gif&apos;,&apos;Red&apos;)
+            )
+        ),
+        IF(
+            Assignment_Date__c + 9 &gt;= Converted_Date__c,
+            IMAGE(&apos;/img/samples/flag_green.gif&apos;,&apos;Green&apos;),
+            IF (
+                Assignment_Date__c + 29 &gt;= Converted_Date__c,
+                IMAGE(&apos;/img/samples/flag_yellow.gif&apos;,&apos;Yellow&apos;),
+                IMAGE(&apos;/img/samples/flag_red.gif&apos;,&apos;Red&apos;)
+            )
+        )
+    )
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Referral Age</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Referral_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Referral Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Assigned</fullName>
+                    <default>false</default>
+                    <label>Assigned</label>
+                </value>
+                <value>
+                    <fullName>Customer Contacted</fullName>
+                    <default>false</default>
+                    <label>Customer Contacted</label>
+                </value>
+                <value>
+                    <fullName>Converted</fullName>
+                    <default>false</default>
+                    <label>Converted</label>
+                </value>
+                <value>
+                    <fullName>Closed</fullName>
+                    <default>false</default>
+                    <label>Closed</label>
+                </value>
+                <value>
+                    <fullName>Expired</fullName>
+                    <default>false</default>
+                    <label>Expired</label>
+                </value>
+                <value>
+                    <fullName>Created</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Created</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Referral__c</fullName>
+        <externalId>false</externalId>
+        <label>Referral</label>
+        <referenceTo>Referral__c</referenceTo>
+        <relationshipLabel>Trade Ally Referrals</relationshipLabel>
+        <relationshipName>Trade_Ally_Referrals</relationshipName>
+        <relationshipOrder>1</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>true</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Trade_Ally__c</fullName>
+        <externalId>false</externalId>
+        <label>Trade Ally</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Trade Ally Referrals</relationshipLabel>
+        <relationshipName>Trade_Ally_Referrals</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>true</writeRequiresMasterRead>
+    </fields>
+    <label>Trade Ally Referral</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Referral__c</columns>
+        <columns>Trade_Ally__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Trade_Ally_Referrals</fullName>
+        <columns>NAME</columns>
+        <columns>Referral__c</columns>
+        <columns>Trade_Ally__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Trade Ally Referrals</label>
+    </listViews>
+    <nameField>
+        <label>Trade Ally Referral Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Trade Ally Referrals</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,17 @@
+.THIS.display_false {
+    display: none;
+}
+
+.THIS .display_false {
+    display: none;
+}
+
+.THIS .checkboxes{
+	padding-bottom: 3px;
+}
+
+.THIS .checkboxes .uiOutputCheckbox{
+	position: relative;
+    top: -1px;
+    margin-right: 5px;
+}

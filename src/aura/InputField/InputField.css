@@ -1,0 +1,29 @@
+.THIS.multipicklist_style {
+    height: 3rem;
+}
+
+.THIS .multipicklist_style {
+    height: 3rem;
+}
+.THIS.required_field {
+    color: red;
+    position: absolute;
+    margin-left: -0.6rem;
+    margin-top: 0.2rem;
+}
+.THIS.display_false {
+    display: none;
+}
+
+.THIS .display_false {
+    display: none;
+}
+
+.THIS .checkboxes{
+	padding-bottom: 3px;
+}
+
+.THIS .checkboxes input[type="checkbox"]{
+	display: inline-block;
+    margin-right: 5px;
+}

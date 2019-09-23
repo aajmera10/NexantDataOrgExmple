@@ -1,0 +1,63 @@
+<aura:component controller="NewTaskCreationController" 
+                implements="forceCommunity:availableForAllPageTypes,lightning:actionOverride" 
+                access="global">
+	
+    <aura:attribute name="defaultAccountId" type="String" />
+    <aura:attribute name="wrappedLogInfo" type="Object" />
+    <aura:attribute name="isViewMode" type="Boolean" default="true" />
+
+    <div class="logsContainer">
+        <aura:if isTrue="{!v.isViewMode}">
+            <div class="slds-button-group" role="group">
+                <input type="button" class="slds-button slds-button_brand" value="Create New Task" onclick="{!c.goToEditMode}" />
+            </div>
+            <aura:set attribute="else">
+                <div class="isAlliesFalse">
+                    <p class="title">New Task</p>
+                    <div>
+                        <aura:iteration items="{!v.wrappedLogInfo.listOfTaskFields}" var="taskField">
+                            <article class="slds-card">
+                                <div class="slds-card__header slds-grid">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                {!taskField.label}:
+                                            </td>
+                                            <td>
+                                                <c:FieldDisplay oneField="{!taskField}" editMode="true" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </article>
+                        </aura:iteration>
+                        <article class="slds-card">
+                            <div class="slds-card__header slds-grid">
+                                <table>
+                                    <tr>
+                                        <td>Assignment</td>
+                                        <td>
+                                            <aura:iteration items="{!v.wrappedLogInfo.wrappedContacts}" var="wrappedContact">
+                                                <div class="checkboxes">
+                                                    <ui:inputCheckbox value="{!wrappedContact.selected}"/>
+                                                    <span>{!wrappedContact.tradeAllyUser.Name}</span>
+                                                </div>
+                                            </aura:iteration>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="slds-button-group" role="group">
+                        <aura:if isTrue="{!not(v.defaultAccountId)}">
+                            <input type="button" class="slds-button slds-button_neutral" value="Cancel" onclick="{!c.cancelSelection}" />
+                        </aura:if>
+                        <input type="button" class="slds-button slds-button_brand" value="Save" onclick="{!c.saveNewLog}" />
+                    </div>
+                </div>
+            </aura:set>
+        </aura:if>
+    </div>
+
+</aura:component>

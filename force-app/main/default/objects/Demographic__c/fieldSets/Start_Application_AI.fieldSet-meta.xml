@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Start_Application_AI</fullName>
+    <description>Start Application Lightning Component.</description>
+    <displayedFields>
+        <field>Minority_woman_disable_veteran_owned__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <displayedFields>
+        <field>Languages_spoken_other_than_English__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <label>Start Application AI</label>
+</FieldSet>

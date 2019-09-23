@@ -1,0 +1,79 @@
+<aura:component description="TradeAllySettings" controller="TradeAllySettingsController"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,force:lightningQuickAction,forceCommunity:availableForAllPageTypes"
+                access="global">
+    <aura:attribute name="communities" type="List"/>
+    <aura:attribute name="currentCommunityName" type="String"/>
+    <aura:attribute name="groupsNames" type="String[]"/>
+    <aura:attribute name="existingGroupsNames" type="String[]"/>
+    <aura:attribute name="countOfExistingGroups" type="Integer" default="0"/>
+    <aura:attribute name="groupsNotChecked" type="Boolean" default="true"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+
+    <div class="slds-card slds-size_6-of-7 slds-align--absolute-center">
+        <table class="slds-table slds-table--fixed-layout">
+            <tr>
+                <th class="slds-text-heading--medium slds-text-align--center" colspan="2">Chatter groups settings</th>
+            </tr>
+            <tr>
+                <td class="slds-text-align--center" colspan="2">
+                    Please, choose a certain Community to verify existing Chatter groups
+                </td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td class="slds-align--absolute-center">
+                    <div class="slds-combobox_container slds-size_small">
+                        <lightning:select name="select1" label="Choose Community"
+                                          value="{!v.currentCommunityName}" onchange="{!c.hideDetails}">
+                            <option value=""></option>
+                            <aura:iteration items="{!v.communities}" var="community">
+                                <option value="{!community.Name}">{!community.Name}</option>
+                            </aura:iteration>
+                        </lightning:select>
+                        <lightning:button label="Check existing groups" onclick="{!c.checkButtonHandler}"/>
+                    </div>
+                </td>
+                <td>
+                    <table class="slds-table slds-table--fixed-layout">
+                        <tr>
+                            <th class="slds-text-heading--small slds-text-align--center" colspan="2">
+                                {!'This Community has '  + v.countOfExistingGroups + ' Chatter groups of 3 required'}
+                            </th>
+                        </tr>
+                        <tr>
+                            <th class="slds-text-heading--small">Chatter groups:</th>
+                            <th class="slds-text-heading--small">Existing groups:</th>
+                        </tr>
+                        <tr>
+                            <td class="slds-cell-fixed">
+                                <aura:iteration items="{!v.groupsNames}" var="groupName">
+                                        <p>
+                                            {!groupName}
+                                        </p>
+                                </aura:iteration>
+                            </td>
+                            <td class="slds-cell-fixed slds-text-align--left">
+                                <aura:iteration items="{!v.existingGroupsNames}" var="groupName">
+                                        <p class="slds-text-color_success">
+                                            {!groupName}
+                                        </p>
+                                </aura:iteration>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <th class="slds-text-heading--small slds-text-align--center" colspan="2">
+                    Create missing Chatter groups
+                </th>
+            </tr>
+            <tr>
+                <td colspan="2" class="">
+                    <lightning:button label="Create new groups" onclick="{!c.createGroups}" class="slds-button--success slds-align--absolute-center" disabled="{!v.groupsNotChecked}"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+</aura:component>

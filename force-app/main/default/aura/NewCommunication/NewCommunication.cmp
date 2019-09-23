@@ -1,0 +1,159 @@
+<aura:component controller ="NewCommunicationController">
+    <aura:attribute name="isCreateCommunicationMode" type="Boolean" default="false"/>
+    <aura:attribute name="newCommunication" type="Object"/>
+    <aura:attribute name="taskTypeOptions" type="Object[]"/>
+    <aura:attribute name="taskSubjectOptions" type="Object[]"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <div class="addBtn">
+      <lightning:button variant="base" class="slds-button slds-button_brand" label="Add Communication" onclick="{!c.createCommunication}"/>
+    </div>
+    
+    <div class = "popupNew newCommunicationCardHidden" aura:id = "communicationCard">
+        <!--<div>
+
+            Contacted By*:
+            <c:InputLookup aura:id = "contactWhoId" 
+                           object="Contact" 
+                           value = "{!v.newCommunication.WhoId}" 
+                           textToShow="Contacted By" 
+                           selectMode = "false"
+            />
+
+            Date*:
+            <lightning:input type="date" value="{!v.newCommunication.ActivityDate}"/>
+
+            Office Name*:
+            <c:InputLookup aura:id = "accountWhatId" 
+                           object="Account" 
+                           value = "{!v.newCommunication.WhatId}" 
+                           textToShow="Contacted By" 
+                           selectMode = "Office Name"
+            />
+
+            Communicated With:
+            <c:InputLookup aura:id = "ownerId" 
+                           object="User" 
+                           value = "{!v.newCommunication.OwnerId}" 
+                           textToShow="Communicated With" 
+                           selectMode = "Office Name"
+            />
+            
+            <lightning:select label = "Topic:" 
+                              value="{!v.newCommunication.Type}"
+            >
+                 <aura:iteration items="{!v.taskTypeOptions}" var="option">
+                    <option text="{!option.label}" value="{!option.value}" selected="{!option.selected}"/>
+                </aura:iteration>
+            </lightning:select>
+
+            <lightning:select label = "Subject:" 
+                              value = "{!v.newCommunication.Subject}"
+            >
+                <aura:iteration items="{!v.taskSubjectOptions}" var = "option">
+                    <option text="{!option.label}" value="{!option.value}" selected="{!option.selected}"/>
+                </aura:iteration>
+            </lightning:select>
+
+            Communication: 
+            <lightning:textArea value = "{!v.newCommunication.Description}" rows="5"/>
+
+            <ui:inputCheckbox value ="{!v.newCommunication.Follow_Up_Required__c}"/>
+            Follow up required?
+        </div>
+
+        <lightning:button label="Save" variant="brand" onclick="{!c.saveNewCommunication}"/>
+        <lightning:button label="Cancel" variant="brand" onclick="{!c.cancelNewCommunication}" />-->
+        <div class="demo-only" style="height: 640px;">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+              <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                  <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Add/Edit Communication</h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                  <table>
+                    <tr>
+                      <td>Contacted By*:</td>
+                      <td>
+                        <c:InputLookup aura:id = "contactWhoId" 
+                           object="Contact" 
+                           value = "{!v.newCommunication.WhoId}" 
+                           textToShow="Contacted By" 
+                           selectMode = "false"
+                          />
+                        </td>
+                    </tr>
+                    <tr>
+                      <td>Date*:</td>
+                      <td><lightning:input type="date" value="{!v.newCommunication.ActivityDate}"/></td>
+                    </tr>
+                    <tr>
+                      <td>Office Name*:</td>
+                      <td>
+                        <c:InputLookup aura:id = "accountWhatId" 
+                           object="Account" 
+                           value = "{!v.newCommunication.WhatId}" 
+                           textToShow="Contacted By" 
+                           selectMode = "Office Name"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Communicated With:</td>
+                      <td>
+                        <c:InputLookup aura:id = "ownerId" 
+                           object="User" 
+                           value = "{!v.newCommunication.OwnerId}" 
+                           textToShow="Communicated With" 
+                           selectMode = "Office Name"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Topic:</td>
+                      <td>
+                        <lightning:select label = "" 
+                              value="{!v.newCommunication.Type}">
+                             <aura:iteration items="{!v.taskTypeOptions}" var="option">
+                                <option text="{!option.label}" value="{!option.value}" selected="{!option.selected}"/>
+                            </aura:iteration>
+                        </lightning:select>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Subject:</td>
+                      <td>
+                        <lightning:select label = "Subject:" 
+                              value = "{!v.newCommunication.Subject}">
+                            <aura:iteration items="{!v.taskSubjectOptions}" var = "option">
+                                <option text="{!option.label}" value="{!option.value}" selected="{!option.selected}"/>
+                            </aura:iteration>
+                        </lightning:select>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Communication:</td>
+                      <td>
+                        <lightning:textArea value = "{!v.newCommunication.Description}" rows="5"/>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">
+                        <ui:inputCheckbox class="inlineBlock" value ="{!v.newCommunication.Follow_Up_Required__c}"/>
+                        <span>Follow up required?</span>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <footer class="slds-modal__footer">
+                  <lightning:button label="Cancel" class="slds-button slds-button_neutral" onclick="{!c.cancelNewCommunication}" />
+                  <lightning:button label="Save" class="slds-button slds-button_brand" onclick="{!c.saveNewCommunication}"/>
+                </footer>
+              </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </div>
+    </div>
+	
+</aura:component>

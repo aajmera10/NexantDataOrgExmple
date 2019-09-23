@@ -1,0 +1,96 @@
+<aura:component controller="DocumentsTabController"
+                implements="forceCommunity:availableForAllPageTypes,lightning:actionOverride,flexipage:availableForAllPageTypes,force:hasRecordId"
+                access="global">
+	<aura:attribute name="recordId" type="Id" />
+	<aura:attribute name="applicationId" type="String" access="global"/>
+	<aura:attribute name="tradeAllyId" type="String" access="global"/>
+	<aura:attribute name="urlPathPrefix" type="String" access="global"/>
+	<aura:attribute name="activeSection" type="String" />
+	<aura:attribute name="allInfoWrapper" type="Object" />
+	<aura:attribute name="filesToUpload" type="Integer" />
+	<aura:attribute name="isNewDocument" type="Boolean" default="false"/>
+	<aura:attribute name="Spinner" type="boolean" default="false"/>
+	<aura:attribute name="newDescription" type="String"/>
+	<aura:attribute name="isValidUser" type="Boolean" default="true"/>
+	<aura:attribute name="appNotExists" type="Boolean" default="true"/>
+	<aura:attribute name="editMode" type="Boolean" default="true"/>
+	<aura:attribute name="mainURL" type="String" />
+
+	<aura:attribute name="acceptableFileTypes" type="String" default="['.doc', '.docx', '.pdf']" />
+	<aura:attribute name="acceptableFileLabel" type="String" default="Only upload .doc, .docx, and .pdf files" />
+	<aura:attribute name="certificationTabLabel" type="String" default="Certifications"/>
+    <aura:attribute name="insuranceTabLabel" type="String" default="Insurances" />
+    <aura:attribute name="licenseTabLabel" type="String" default="Licenses" />
+    <aura:attribute name="otherDocumentTabLabel" type="String" default="Other Documents" />
+    <aura:attribute name="taxTabLabel" type="String" default="Tax Documents" />
+	<aura:attribute name="stageMap" type="Object" /> <!-- Controlls which tab(s) should be displayed. -->
+	<aura:attribute name="componentTitle" type="String" default="Documents" />
+	<aura:attribute name="hasNameSpace" type="String" default="false" />
+
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <aura:if isTrue="{!and(v.isValidUser,!v.appNotExists)}">
+		<div class="slds-text-heading_large slds-align_absolute-center">{!v.componentTitle}</div>
+		<lightning:tabset>
+			<aura:if isTrue="{!(v.stageMap.Certifications__c || v.stageMap.Nexant__Certifications__c)}">
+				<lightning:tab label="{!v.certificationTabLabel}" id="certification">
+					<c:ApplicationDocuments
+						acceptableFileLabel="{!v.acceptableFileLabel}"
+						acceptableFileTypes="{!v.acceptableFileTypes}"
+						applicationID="{!v.applicationId}"
+						hasNameSpace="{!v.hasNameSpace}"
+						objectApiName="Certification__c"
+					 />
+				</lightning:tab>
+			</aura:if>
+			<aura:if isTrue="{!(v.stageMap.Insurance_Information__c || v.stageMap.Nexant__Insurance_Information__c)}">
+				<lightning:tab label="{!v.insuranceTabLabel}" id="insurance">
+					<c:ApplicationDocuments
+						acceptableFileLabel="{!v.acceptableFileLabel}"
+						acceptableFileTypes="{!v.acceptableFileTypes}"
+						applicationID="{!v.applicationId}"
+						hasNameSpace="{!v.hasNameSpace}"
+						objectApiName="Insurance__c"
+					 />
+				</lightning:tab>
+			</aura:if>
+			<aura:if isTrue="{!(v.stageMap.License_Information__c || v.stageMap.Nexant__License_Information__c)}">
+				<lightning:tab label="{!v.licenseTabLabel}" id="license">
+					<c:ApplicationDocuments
+						acceptableFileLabel="{!v.acceptableFileLabel}"
+						acceptableFileTypes="{!v.acceptableFileTypes}"
+						applicationID="{!v.applicationId}"
+						hasNameSpace="{!v.hasNameSpace}"
+						objectApiName="License__c"
+					 />
+				</lightning:tab>
+			</aura:if>
+			<aura:if isTrue="{!(v.stageMap.Other_Documents__c || v.stageMap.Nexant__Other_Documents__c)}">
+				<lightning:tab label="{!v.otherDocumentTabLabel}" id="other">
+					<c:ApplicationDocuments
+						acceptableFileLabel="{!v.acceptableFileLabel}"
+						acceptableFileTypes="{!v.acceptableFileTypes}"
+						applicationID="{!v.applicationId}"
+						hasNameSpace="{!v.hasNameSpace}"
+						objectApiName="Other_Document__c"
+					 />
+				</lightning:tab>
+			</aura:if>
+			<aura:if isTrue="{!(v.stageMap.Tax_Documents__c || v.stageMap.Nexant__Tax_Documents__c)}">
+				<lightning:tab label="{!v.taxTabLabel}" id="tax">
+					<c:ApplicationDocuments
+						acceptableFileLabel="{!v.acceptableFileLabel}"
+						acceptableFileTypes="{!v.acceptableFileTypes}"
+						applicationID="{!v.applicationId}"
+						hasNameSpace="{!v.hasNameSpace}"
+						objectApiName="Tax__c"
+					 />
+				</lightning:tab>
+			</aura:if>
+		</lightning:tabset>
+    </aura:if>
+
+	<aura:if isTrue="{!!v.isValidUser}">
+		<center>{!$Label.c.Not_Available_Logic}</center>
+	</aura:if>
+</aura:component>

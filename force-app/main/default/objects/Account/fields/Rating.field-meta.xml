@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rating</fullName>
+    <inlineHelpText>Utility Admin&#39;s Rating of Trade Allies. This field should only be edited by utility admins and everyone else should only have permission of read.</inlineHelpText>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+</CustomField>
+
+
+
+<!--<picklistValues>
+    <picklist>Rating</picklist>
+    <values>
+        <fullName>Average</fullName>
+        <default>true</default>
+    </values>
+    <values>
+        <fullName>High</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Highest</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Low</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Lowest</fullName>
+        <default>false</default>
+    </values>
+</picklistValues>-->

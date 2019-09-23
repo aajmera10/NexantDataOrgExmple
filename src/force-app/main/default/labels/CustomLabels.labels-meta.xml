@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Application_Certification_Instructions</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Application Certification Instructions</shortDescription>
+        <value>Certifications</value>
+    </labels>
+    <labels>
+        <fullName>Application_Company_Information</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Application Company Information</shortDescription>
+        <value>Utility may provide customers with the Business Vendor’s information and publicize such information on utility’s website. Information in this section to be publicized includes: Business or Trade Name &amp; Website. By signing the Application, the Business Vendor authorizes such use of its business information.</value>
+    </labels>
+    <labels>
+        <fullName>Application_Contact_Instructions</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Application Contact Instructions</shortDescription>
+        <value>Contact Information</value>
+    </labels>
+    <labels>
+        <fullName>Application_Customer_Ref_Instructions</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Application Customer Ref Instructions</shortDescription>
+        <value>Customer References</value>
+    </labels>
+    <labels>
+        <fullName>Application_Demographic_Instructions</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Application Demographic Instructions</shortDescription>
+        <value>Applicants must fill out the following information, to the best of their knowledge, to be fully considered for participation</value>
+    </labels>
+    <labels>
+        <fullName>Application_Final_Agreement_Instructions</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Application Final Agreement Instructions</shortDescription>
+        <value>Agreement</value>
+    </labels>
+    <labels>
+        <fullName>Application_Insurance_Instructions</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Application Insurance Instructions</shortDescription>
+        <value>Upload the company&#39;s Insurance Information below.</value>
+    </labels>
+    <labels>
+        <fullName>Application_License_Instructions</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Application License Instructions</shortDescription>
+        <value>Applicants must provide a copy of all licenses as may be necessary and required for the type of work the organization performs and as required by federal, state, or local law.</value>
+    </labels>
+    <labels>
+        <fullName>Application_Other_Document_Instructions</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Application Other Document Instructions</shortDescription>
+        <value>Upload a copy of Signed Agreement</value>
+    </labels>
+    <labels>
+        <fullName>Application_Program_Participation_Instructions</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Application Program Participation Instructions</shortDescription>
+        <value>Services</value>
+    </labels>
+    <labels>
+        <fullName>Application_Recaptcha_Error</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Application Recaptcha Error</shortDescription>
+        <value>Please prove you are not a robot.</value>
+    </labels>
+    <labels>
+        <fullName>Application_Submission_Body</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Application Submission Body</shortDescription>
+        <value>We will email you shortly concerning the next step in the approval process.</value>
+    </labels>
+    <labels>
+        <fullName>Application_Submission_Header</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Application Submission Header</shortDescription>
+        <value>Congratulations! You have successfully completed the application.</value>
+    </labels>
+    <labels>
+        <fullName>Application_Tab_10_OtherDocs</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Application Tab 10 OtherDocs</shortDescription>
+        <value>Other Documents</value>
+    </labels>
+    <labels>
+        <fullName>Application_Tab_11_Questions</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Application Tab 11 Questions</shortDescription>
+        <value>Applicant Info</value>
+    </labels>
+    <labels>
+        <fullName>Application_Tab_12_Agreement</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Application Tab 12 Agreement</shortDescription>
+        <value>Final Agreement</value>
+    </labels>
+    <labels>
+        <fullName>Application_Tab_1_Company</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Application Tab 1 Company</shortDescription>
+        <value>Company Information</value>
+    </labels>
+    <labels>
+        <fullName>Application_Tab_2_Contact</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Application Tab 2 Contact</shortDescription>
+        <value>Business Address &amp; Contact Information</value>
+    </labels>
+    <labels>
+        <fullName>Application_Tab_3_Program</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Application Tab 3 Program</shortDescription>
+        <value>Specialties</value>
+    </labels>
+    <labels>
+        <fullName>Application_Tab_4_CustRef</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Application Tab 4 CustRef</shortDescription>
+        <value>Customer References</value>
+    </labels>
+    <labels>
+        <fullName>Application_Tab_5_TradeRef</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Application Tab 5 TradeRef</shortDescription>
+        <value>Trade References</value>
+    </labels>
+    <labels>
+        <fullName>Application_Tab_6_Insurance</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Application Tab 6 Insurance</shortDescription>
+        <value>Insurance Information</value>
+    </labels>
+    <labels>
+        <fullName>Application_Tab_7_License</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Application Tab 7 License</shortDescription>
+        <value>License Information</value>
+    </labels>
+    <labels>
+        <fullName>Application_Tab_8_Certification</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Application Tab 8 Certification</shortDescription>
+        <value>Certifications</value>
+    </labels>
+    <labels>
+        <fullName>Application_Tab_9_Tax</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Application Tab 9 Tax</shortDescription>
+        <value>Tax Documents</value>
+    </labels>
+    <labels>
+        <fullName>Application_Tax_Instructions</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Application Tax Instructions</shortDescription>
+        <value>Submit a completed and signed W-9 form</value>
+    </labels>
+    <labels>
+        <fullName>Application_Trade_Ref_Instructions</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Application Trade Ref Instructions</shortDescription>
+        <value>Trade References</value>
+    </labels>
+    <labels>
+        <fullName>Deactivated_User</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Deactivated User</shortDescription>
+        <value>Selected username is deactivated</value>
+    </labels>
+    <labels>
+        <fullName>File_Upload_Label</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>File Upload Label</shortDescription>
+        <value>File Upload</value>
+    </labels>
+    <labels>
+        <fullName>File_Upload_Label_Certification</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>File Upload Label Certification</shortDescription>
+        <value>File Upload Label Certification</value>
+    </labels>
+    <labels>
+        <fullName>File_Upload_Label_Insurance</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>File Upload Label Insurance</shortDescription>
+        <value>File Upload Label Insurance</value>
+    </labels>
+    <labels>
+        <fullName>File_Upload_Label_License</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>File Upload Label License</shortDescription>
+        <value>File Upload Label License</value>
+    </labels>
+    <labels>
+        <fullName>File_Upload_Label_Other_Docs</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>File Upload Label Other Docs</shortDescription>
+        <value>File Upload Label Other Docs</value>
+    </labels>
+    <labels>
+        <fullName>File_Upload_Label_Tax</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>File Upload Label Tax</shortDescription>
+        <value>File Upload Label Tax</value>
+    </labels>
+    <labels>
+        <fullName>Internal_server_error</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Internal server error</shortDescription>
+        <value>Internal server error</value>
+    </labels>
+    <labels>
+        <fullName>Minimum_Certifications</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Minimum Certifications</shortDescription>
+        <value>Minimum number of certifications is not reached</value>
+    </labels>
+    <labels>
+        <fullName>Minimum_Docs</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Minimum Docs</shortDescription>
+        <value>Minimum number of documents is not reached</value>
+    </labels>
+    <labels>
+        <fullName>Minimum_Insurances</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Minimum Insurances</shortDescription>
+        <value>Minimum number of insurances is not reached</value>
+    </labels>
+    <labels>
+        <fullName>Minimum_Licenses</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Minimum Licenses</shortDescription>
+        <value>Minimum number of licenses is not reached</value>
+    </labels>
+    <labels>
+        <fullName>Minimum_References</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Minimum References</shortDescription>
+        <value>Minimum number of references is not reached</value>
+    </labels>
+    <labels>
+        <fullName>Not_Available_Logic</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Not Available Logic</shortDescription>
+        <value>Functionality is not available for your user</value>
+    </labels>
+    <labels>
+        <fullName>Status_incomplete</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Status incomplete</shortDescription>
+        <value>No response from server or client is offline</value>
+    </labels>
+    <labels>
+        <fullName>Subscription_Suggestion</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Subscription Suggestion</shortDescription>
+        <value>Premium subscription provides more abilities for your Trade Ally users. To manage your subscription later open tub &quot;Subscription&quot;.</value>
+    </labels>
+    <labels>
+        <fullName>Subscription_Suggestion_Header</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Subscription Suggestion Header</shortDescription>
+        <value>Do you want to get the Premium Subscription?</value>
+    </labels>
+    <labels>
+        <fullName>Subscription_in_Process</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Subscription in Process</shortDescription>
+        <value>Subscription creation is in process. Process will be done in few minutes.</value>
+    </labels>
+    <labels>
+        <fullName>Valid_Data_and_Required_Fields</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Valid Data and Required Fields</shortDescription>
+        <value>All data should be valid and all required fields should be populated</value>
+    </labels>
+</CustomLabels>

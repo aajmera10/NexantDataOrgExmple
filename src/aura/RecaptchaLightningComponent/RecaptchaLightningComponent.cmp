@@ -1,0 +1,18 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" 
+                controller="RecaptchaLightningComponentController"
+                access="global" >
+
+	<!--Events-->
+	<aura:registerEvent name="wasGoogleRecaptchaPassed" type="c:WasGoogleRecaptchaPassedEvent"/>
+
+	<!--Attributes-->
+	<aura:attribute name="domainUrl" type="String" default="" />
+	<aura:attribute name="communityUrl" type="String" default="" />
+	<aura:attribute name="namespace" type="String" default="" />
+
+	<!--Content-->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <div class="captchaContainer">
+    	<iframe src="{!v.domainUrl + v.communityUrl + '/apex/' + v.namespace + 'RecaptchaPage'}" width="400"/>
+    </div>
+</aura:component>

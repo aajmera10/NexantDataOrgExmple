@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Effective_Date_Must_Be_Before_Expiry</fullName>
+    <active>true</active>
+    <description>This validation rule will check that the Effective Date is set to be before Expiry Date.</description>
+    <errorConditionFormula>AND( 
+NOT(ISBLANK( Effective_Date__c )), 
+NOT(ISBLANK( Expiry_Date__c )), 
+Effective_Date__c &gt; Expiry_Date__c 
+)</errorConditionFormula>
+    <errorDisplayField>Effective_Date__c</errorDisplayField>
+    <errorMessage>The Effective Date must be before the Expiry Date</errorMessage>
+</ValidationRule>

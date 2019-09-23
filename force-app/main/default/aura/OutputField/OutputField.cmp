@@ -1,0 +1,126 @@
+<aura:component access="GLOBAL">
+
+    <aura:attribute name="oneField" type="Object" access="GLOBAL" />
+    <aura:attribute name="linksMode" type="Boolean" access="GLOBAL" default="false" />
+    <aura:attribute name="numberOfRowsToDisplay" type="Integer"/>
+
+    <aura:if isTrue="{!v.oneField.type == 'REFERENCE'}">
+        <div class="outputContainer">
+            <aura:if isTrue="{!v.linksMode}">
+                <a onclick="{!c.openDetailsPage}">{!v.oneField.displayValue}</a>
+                <aura:set attribute="else">
+                    <ui:outputText value="{!v.oneField.displayValue}" />
+                </aura:set>
+            </aura:if>
+        </div>
+    </aura:if>
+
+    <aura:if isTrue="{!v.oneField.type == 'STRING'}">
+        <div class="outputContainer">
+            <aura:if isTrue="{!and(v.linksMode,v.oneField.name == 'Name')}">
+                <a onclick="{!c.openDetailsPage}">{!v.oneField.value}</a>
+                <aura:set attribute="else">
+                    <!--<ui:outputText value="{!v.oneField.value}" />-->
+                    <ui:outputRichText value="{!v.oneField.value}"/>
+                </aura:set>
+            </aura:if>
+        </div>
+    </aura:if>
+
+    <aura:if isTrue="{!v.oneField.type == 'DATETIME'}">
+        <div class="outputContainer">
+            <ui:inputDateTime value="{!v.oneField.valueDateTime}" />
+        </div>
+    </aura:if>
+
+    <aura:if isTrue="{!v.oneField.type == 'DATE'}">
+        <div class="outputContainer">
+            <ui:outputDate value="{!v.oneField.valueDate}" />
+        </div>
+    </aura:if>
+
+    <aura:if isTrue="{!v.oneField.type == 'BOOLEAN'}">
+        <div class="outputContainer">
+            <ui:outputCheckbox value="{!v.oneField.valueBoolean}" />
+        </div>
+    </aura:if>
+
+    <aura:if isTrue="{!v.oneField.type == 'CURRENCY'}">
+        <div class="outputContainer">
+            <ui:outputCurrency value="{!v.oneField.valueNumber}" />
+        </div>
+    </aura:if>
+
+    <aura:if isTrue="{!v.oneField.type == 'INTEGER'}">
+        <div class="outputContainer">
+            <ui:outputNumber value="{!v.oneField.valueNumber}" />
+        </div>
+    </aura:if>
+
+    <aura:if isTrue="{!v.oneField.type == 'DOUBLE'}">
+        <div class="outputContainer">
+            <ui:outputNumber value="{!v.oneField.valueNumber}" />
+        </div>
+    </aura:if>
+            
+    <aura:if isTrue="{!v.oneField.type == 'PERCENT'}">
+        <div class="outputContainer">
+            <ui:outputNumber value="{!v.oneField.valueNumber}" />
+        </div>
+    </aura:if>
+
+    <aura:if isTrue="{!v.oneField.type == 'EMAIL'}">
+        <div class="outputContainer">
+            <ui:outputEmail value="{!v.oneField.value}" />
+        </div>
+    </aura:if>
+
+    <aura:if isTrue="{!v.oneField.type == 'PHONE'}">
+        <div class="outputContainer">
+            <ui:outputPhone value="{!v.oneField.value}" />
+        </div>
+    </aura:if>
+
+    <aura:if isTrue="{!v.oneField.type == 'URL'}">
+        <div class="outputContainer">
+            <ui:outputURL value="{!v.oneField.value}" label="{!v.oneField.displayValue}" />
+        </div>
+    </aura:if>
+
+    <aura:if isTrue="{!and(v.oneField.type == 'TEXTAREA',!v.numberOfRowsToDisplay)}">
+        <div class="outputContainer">
+            <lightning:formattedRichText value="{!v.oneField.value}" />
+        </div>
+    </aura:if>
+
+    <aura:if isTrue="{!and(v.oneField.type == 'TEXTAREA',v.numberOfRowsToDisplay)}">
+        <div class="outputContainer" style="{!'max-height: calc(22.5*'+v.numberOfRowsToDisplay+'px); overflow-y: auto;'}">
+            <!--<ui:outputTextArea value="{!v.oneField.value}" />-->
+            <lightning:formattedRichText value="{!v.oneField.value}" />
+        </div>
+    </aura:if>
+    
+    <aura:if isTrue="{!v.oneField.type == 'RICHTEXTAREA'}">
+        <div class="outputContainer">
+            <lightning:formattedRichText value="{!v.oneField.value}" />
+        </div>
+    </aura:if>
+
+    <div class="outputContainer">
+        <span class="{!'display_'+or(v.oneField.type == 'PICKLIST',v.oneField.type == 'COMBOBOX',v.oneField,v.oneField.picklistValues)}">
+            <ui:outputText value="{!v.oneField.value}" />
+        </span>
+    </div>
+    
+    <div class="outputContainer">
+        <span class="{!'display_'+and(v.oneField.type == 'MULTIPICKLIST',v.oneField,v.oneField.picklistValues)}">
+            <!--<ui:outputText value="{!v.oneField.displayValue}" />-->
+            <aura:iteration items="{!v.oneField.picklistValues}" var="plv">
+                <div class="checkboxes">
+                    <ui:outputCheckbox value="{!plv.selected}"/>
+                    <span>{!plv.label}</span>
+                </div>
+            </aura:iteration>
+        </span>
+    </div>
+</aura:component>

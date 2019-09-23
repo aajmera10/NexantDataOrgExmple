@@ -1,0 +1,21 @@
+<aura:component>
+    <aura:attribute name="tradeallies" type="Object"/>
+    <aura:attribute name="showCheckboxColumn" type="Boolean" default = "true"/>
+
+    <td class="{!v.showCheckboxColumn ? 'slds-cell-edit': 'slds-hide'}">
+		<ui:inputCheckbox value ="{!v.tradeallies.isSelected}" />
+    </td>
+    <td class="slds-cell-edit">
+        <span class="slds-truncate"><ui:outputText value="{!v.tradeallies.tradeAlly.Name}"/></span>
+    </td>
+    <td class="slds-cell-edit">
+        <span class="slds-truncate"><ui:outputText value="{!v.tradeallies.user.MobilePhone + ' '}"/></span> 
+        <span class="slds-truncate"><ui:outputText value="{!v.tradeallies.user.Name}"/></span>
+    </td>
+    <td class="slds-cell-edit">
+        <span class="slds-truncate"><ui:outputText value="{!v.tradeallies.tradeAlly.Number_Of_Referrals__c}"/></span>
+    </td>
+	<td class="slds-cell-edit">
+        <span class="slds-truncate"><lightning:formattedDateTime value="{!v.tradeallies.tradeAlly.Date_Of_Last_Referral__c}" year="numeric" month="short" day="2-digit" weekday="long"/></span>
+    </td>
+</aura:component>

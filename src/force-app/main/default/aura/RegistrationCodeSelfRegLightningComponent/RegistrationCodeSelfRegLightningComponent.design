@@ -1,0 +1,17 @@
+<design:component label="Trade Ally Self Register With Registration Code Form">
+    <design:attribute name="domainUrl" label="Domain URL" default="" />
+    <design:attribute name="communityUrl" label="Community URL" default="" />
+    <design:attribute name="startUrl" label="Start URL" />
+    <design:attribute name="regConfirmUrl" label="Reg Confirm URL" default="./login/CheckPasswordResetEmail" />
+    <design:attribute name="firstnameLabel" label="First Name Label" default="First Name" />
+    <design:attribute name="lastnameLabel" label="Last Name Label" default="Last Name" />
+    <design:attribute name="emailLabel" label="Email Label" default="Email" />
+    <design:attribute name="passwordLabel" label="Password Label" default="Create Password" />
+    <design:attribute name="confirmPasswordLabel" label="Confirm Password Label" default="Confirm Password" />
+    <design:attribute name="submitButtonLabel" label="Submit Button Label" default="Sign Up" />
+    <design:attribute name="includePasswordField" label="Include Password Field" default="false" />
+    <design:attribute name="extraFieldsFieldSet" label="Field Set With Extra Fields Name" />
+	<design:attribute name="includeRecaptcha" label="Include Recaptcha?" />
+	<design:attribute name="includeApplicationType" label="Include Application Type?" />
+    <design:attribute name="approvalForSubUser" label="Include Approval For Sub User?" />
+</design:component>

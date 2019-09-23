@@ -1,0 +1,23 @@
+.THIS .btnSearch {
+    background-color: #4eb1cb;
+    border: 0;
+    width: 20px;
+    height: 1.32rem;
+    position: absolute;
+    border-radius: 0 3px 3px 0;
+    z-index: 9;
+}
+.THIS .searchIcon {
+    width: 10px;
+    position: absolute;
+    margin-top: -5px;
+    margin-left: -5px;
+}
+.THIS .select {
+    float: left;
+    height: 1.35rem;
+    margin-left: 2rem;
+}
+.THIS .inputWrap {
+    float: left;
+}

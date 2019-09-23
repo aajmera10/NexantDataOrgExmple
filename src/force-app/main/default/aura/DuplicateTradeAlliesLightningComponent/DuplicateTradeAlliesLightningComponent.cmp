@@ -1,0 +1,58 @@
+<aura:component>
+
+	<!--Attributes-->
+	<aura:attribute name="selfRegisterTradeAllyWrapper" type="SelfRegisterTradeAllyWrapper" default="" />
+
+	<!--Events-->
+	<aura:registerEvent name="selectTradeAllyDuplicateEvent" type="c:SelectTradeAllyDuplicateEvent" />
+	<aura:registerEvent name="declineAllTradeAllyDuplicates" type="c:DeclineAllTradeAllyDuplicatesEvent" />
+
+	<!--Content-->
+	<div id="DuplicateDiv" style="height: 24rem;">
+	<section role="alertdialog" tabindex="-1" aria-labelledby="prompt-heading-id" aria-describedby="prompt-message-wrapper" class="slds-modal slds-fade-in-open slds-modal_prompt" aria-modal="true">
+		<div class="slds-modal__container">
+		<header class="slds-modal__header slds-theme_error slds-theme_alert-texture">
+			<h2 class="slds-text-heading_medium" id="prompt-heading-id">Duplicate entry</h2>
+		  </header>
+			<aura:iteration items="{!v.selfRegisterTradeAllyWrapper.tradeAlliesDuplicateList}" var="tradeAllyDuplicate">
+				<div class="slds-modal__content slds-p-around_medium" id="prompt-message-wrapper">
+				<table>
+				<tr>
+					<td>
+						{!tradeAllyDuplicate.Name}
+					</td>
+					<td>
+						<aura:if isTrue="{!not(empty(tradeAllyDuplicate.BillingCity))}">
+							{!tradeAllyDuplicate.BillingCity}
+							<aura:set attribute="else">
+								City was not specified
+							</aura:set>
+						</aura:if>,
+						<aura:if isTrue="{!not(empty(tradeAllyDuplicate.BillingState))}">
+							{!tradeAllyDuplicate.BillingState}
+							<aura:set attribute="else">
+								State was not specified
+							</aura:set>
+						</aura:if>,
+						<aura:if isTrue="{!not(empty(tradeAllyDuplicate.Phone))}">
+							{!tradeAllyDuplicate.Phone}
+							<aura:set attribute="else">
+								Phone was not specified
+							</aura:set>
+						</aura:if>
+					</td>
+					<td>
+						<lightning:button class="slds-button slds-button_outline-brand" label="Yes, that's me!" value="{!tradeAllyDuplicate.Id}" onclick="{!c.selectTradeAllyDuplicate}" />
+					</td>
+				</tr>
+				</table>
+				</div>
+			</aura:iteration>
+		<footer class="slds-modal__footer slds-theme_default">
+			 <lightning:button class="slds-button slds-button_text-destructive" label="Decline All - Return to Registration" onclick="{!c.declineAllTradeAllyDuplicates}" />
+		</footer>
+		</div>
+	</section>
+	</div>
+
+</aura:component>

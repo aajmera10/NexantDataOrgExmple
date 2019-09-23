@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Enable_External_Integration__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>If this checkbox is checked, TA account will be synced back to DSMC.</description>
+    <externalId>false</externalId>
+    <label>Enable external integration?</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Maps trade ally types with the tabs available on the application page.</description>
+    <fields>
+        <fullName>Application_Type__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Application Type</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Certifications__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Certifications</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Customer_References__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Customer References</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Demographics__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Demographics</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Insurance_Information__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Insurance Information</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>License_Information__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>License Information</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Other_Documents__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Other Documents</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Program_Participation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Program Participation</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Tax_Documents__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Tax Documents</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Trade_References__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Trade References</label>
+        <type>Checkbox</type>
+    </fields>
+    <label>Trade Ally Type – Application Stages map</label>
+    <pluralLabel>Trade Ally Type – Application Stages map</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

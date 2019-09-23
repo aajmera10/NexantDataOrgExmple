@@ -1,0 +1,23 @@
+<aura:component controller="CustomProfileMenuController" 
+                implements="forceCommunity:profileMenuInterface" 
+                access="global">
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <aura:attribute name="allInfo" type="Object"/>
+    <ui:menu >
+        <ui:menuTriggerLink aura:id="trigger">
+            <div class="menuTriggerLink">
+                <img class="image_styles" src="{!v.allInfo.photoURL}" />
+                <span class="user_name"> {!v.allInfo.userName}</span>
+            </div>
+        </ui:menuTriggerLink>
+        <ui:menuList class="actionMenu" aura:id="actionMenu">
+            <aura:iteration items="{!v.allInfo.listOfItems}" var="item">
+                <ui:actionMenuItem label="{!item}" 
+                                   click="{!c.handleClick}"
+                                   class="actionMenuItem"/>
+            </aura:iteration>
+        </ui:menuList>
+    </ui:menu>
+</aura:component>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>default 1</fullName>
+        <default>false</default>
+        <label>default 1</label>
+    </customValue>
+    <customValue>
+        <fullName>default 2</fullName>
+        <default>false</default>
+        <label>default 2</label>
+    </customValue>
+    <masterLabel>State Incorporated</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

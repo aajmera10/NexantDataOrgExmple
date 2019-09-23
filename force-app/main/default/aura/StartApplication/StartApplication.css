@@ -1,0 +1,90 @@
+/*.THIS .uploadBtn{
+    cursor:pointer;
+    z-index: 26;
+    font-size: 14px;
+    border: 0px solid #616161;
+    color: #616161;
+    border-radius: 3px;
+    padding: 7px 11px 8px 11px;
+    position: relative;
+    background: rgb(148,148,148);
+    color: #fff;
+}
+
+.THIS .uploadBtn input {
+    width: 87px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 30px;
+    opacity: 0;
+}*/
+
+.THIS .attachName{
+    margin-left: 0.5rem;
+    color: lightgray;
+    display: inline-block;
+    max-width: 10rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+}
+
+.THIS.startContainer ul.slds-tabs_scoped__nav{
+    display: table;
+    width: 100%;
+}
+
+.THIS.startContainer ul.slds-tabs_scoped__nav li{
+    display: inline-block;
+    vertical-align: top;
+}
+
+.THIS.startContainer ul .slds-tabs--scoped__link:focus, 
+.THIS.startContainer ul .slds-tabs--scoped__link:hover, 
+.THIS.startContainer ul .slds-tabs_scoped__link:focus, 
+.THIS.startContainer ul .slds-tabs_scoped__link:hover{
+    border-color: transparent;
+}
+
+.THIS.startContainer ul .slds-tabs_scoped__link{
+    border: 1px solid transparent !important;
+}
+
+.THIS.startContainer .slds-tabs_scoped__item{
+    margin-bottom: 0;
+}
+
+.THIS.startContainer .slds-card table{
+    width: 100%;
+}
+
+.THIS.startContainer .slds-card table td{
+    width: 50%;
+    vertical-align: top;
+}
+
+.THIS.startContainer .slds-button-group{
+    display: block;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.THIS.startContainer .addReference{
+    padding-bottom: 15px;
+}
+
+.THIS.startContainer lightning-primitive-icon{
+    margin-right: 5px;
+}
+
+.THIS.startContainer .slds-spinner_container {  
+  z-index: 10000;
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.5);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;    
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Trade_Ally_Referrals</fullName>
+    <columns>NAME</columns>
+    <columns>Referral__c</columns>
+    <columns>Trade_Ally__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All Trade Ally Referrals</label>
+</ListView>

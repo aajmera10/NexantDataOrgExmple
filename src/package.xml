@@ -1,0 +1,1211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>AlertsEmailsBatch</members>
+        <members>AlertsManagementController</members>
+        <members>AlertsManagementControllerTest</members>
+        <members>AlertsReviewBatch</members>
+        <members>AlertsReviewScheduler</members>
+        <members>ApplicationOnChangeTriggerHandler</members>
+        <members>ChangePasswordController</members>
+        <members>ChangePasswordControllerTest</members>
+        <members>ChangeProfileBatch</members>
+        <members>ChangeProfileScheduler</members>
+        <members>CheckActiveRecordsScheduler</members>
+        <members>CommunicationHistoryController</members>
+        <members>CommunicationHistoryControllerTest</members>
+        <members>CommunitiesLandingController</members>
+        <members>CommunitiesLandingControllerTest</members>
+        <members>CommunitiesLoginController</members>
+        <members>CommunitiesLoginControllerTest</members>
+        <members>CommunitiesSelfRegConfirmController</members>
+        <members>CommunitiesSelfRegConfirmControllerTest</members>
+        <members>CommunitiesSelfRegController</members>
+        <members>CommunitiesSelfRegControllerTest</members>
+        <members>Constants</members>
+        <members>ConvertReferralController</members>
+        <members>ConvertReferralControllerTest</members>
+        <members>CopyTermsAndConditionsTest</members>
+        <members>CustomProfileMenuController</members>
+        <members>CustomProfileMenuControllerTest</members>
+        <members>DocumentsTabController</members>
+        <members>DocumentsTabControllerTest</members>
+        <members>ESAPI</members>
+        <members>FieldInfoWrapper</members>
+        <members>FieldsInfoUtility</members>
+        <members>FindTARest</members>
+        <members>FindTARestTest</members>
+        <members>ForgotPasswordController</members>
+        <members>ForgotPasswordControllerTest</members>
+        <members>GenerateAlertTriggersTest</members>
+        <members>GenerateAlertsController</members>
+        <members>GetStripeInvoicesBatch</members>
+        <members>GetStripeInvoicesScheduler</members>
+        <members>GetStripeInvoicesSchedulerAndBatchTest</members>
+        <members>InputLookupController</members>
+        <members>InputLookupControllerTest</members>
+        <members>LightningForgotPasswordController</members>
+        <members>LightningForgotPasswordControllerTest</members>
+        <members>LightningLoginFormController</members>
+        <members>LightningLoginFormControllerTest</members>
+        <members>LightningSelfRegisterController</members>
+        <members>LightningSelfRegisterControllerTest</members>
+        <members>ListViewInfoWrapper</members>
+        <members>LoginTradeAllyController</members>
+        <members>LoginTradeAllyControllerTest</members>
+        <members>LogsManagementController</members>
+        <members>LogsManagementControllerTest</members>
+        <members>MyProfilePageController</members>
+        <members>MyProfilePageControllerTest</members>
+        <members>NewCommunicationController</members>
+        <members>NewCommunicationControllerTest</members>
+        <members>NewTaskCreationController</members>
+        <members>NewTaskCreationControllerTest</members>
+        <members>NexantPartnerIdAppPlugin</members>
+        <members>PdfDataDisplayController</members>
+        <members>PdfDataDisplayControllerTest</members>
+        <members>PostInstallClass</members>
+        <members>PostInstallClassTest</members>
+        <members>ProfileTabController</members>
+        <members>ProfileTabInfoWrapper</members>
+        <members>ProjectShareWithTATest</members>
+        <members>RecaptchaLightningComponentController</members>
+        <members>ReferralsListController</members>
+        <members>ReferralsListControllerTest</members>
+        <members>RefferalsListController</members>
+        <members>RelatedRecordsOnChangeTriggerHandler</members>
+        <members>SFDCEncoder</members>
+        <members>SFDCSecurityUtils</members>
+        <members>SchedulersAndBatchesTest</members>
+        <members>SearchRequestWrapper</members>
+        <members>SelfRegisterTradeAllyController</members>
+        <members>SelfRegisterTradeAllyControllerTest</members>
+        <members>SelfRegisterTradeAllyUtility</members>
+        <members>SelfRegisterTradeAllyWrapper</members>
+        <members>SetTermsAndConditionsStatusTriggerTest</members>
+        <members>SiteLoginController</members>
+        <members>SiteLoginControllerTest</members>
+        <members>SiteRegisterController</members>
+        <members>SiteRegisterControllerTest</members>
+        <members>StartApplicationAllInfoWrapper</members>
+        <members>StartApplicationController</members>
+        <members>StartApplicationControllerTest</members>
+        <members>StripeApiPayPageController</members>
+        <members>StripeApiPayPageControllerTest</members>
+        <members>StripeApiUtility</members>
+        <members>StripeApiUtilityTest</members>
+        <members>StripeHttpCalloutMock</members>
+        <members>StripeWebService</members>
+        <members>SubmitApplicationController</members>
+        <members>SubmitApplicationControllerTest</members>
+        <members>SubscriptionPopUpController</members>
+        <members>SubscriptionPopUpControllerTest</members>
+        <members>SubscriptionTriggerHandler</members>
+        <members>SubscriptionTriggerTest</members>
+        <members>TAUserTriggerHandler</members>
+        <members>TerritoryHierarchyController</members>
+        <members>TerritoryHierarchyControllerTest</members>
+        <members>TradeAllyContactTriggerTest</members>
+        <members>TradeAllyEventsController</members>
+        <members>TradeAllyEventsControllerTest</members>
+        <members>TradeAllyReferralOnChangeTriggerHandler</members>
+        <members>TradeAllySearchController</members>
+        <members>TradeAllySearchControllerTest</members>
+        <members>TradeAllySettingsController</members>
+        <members>TradeAllySettingsControllerTest</members>
+        <members>TradeAllySharingUtility</members>
+        <members>TradeAllySubscriptionController</members>
+        <members>TradeAllySubscriptionControllerTest</members>
+        <members>TradeAllyTriggerHandler</members>
+        <members>TradeAllyTriggerHandlerTest</members>
+        <members>TradeAllyTriggerTest</members>
+        <members>TradeAllyUserTriggerHandler</members>
+        <members>TradeAllyUserTriggerTest</members>
+        <members>ValidateActiveCertificationsBatch</members>
+        <members>ValidateActiveInsurancesBatch</members>
+        <members>ValidateActiveLicensesBatch</members>
+        <members>WorkWithAttachmentsUtility</members>
+        <members>WrappedInfoParser</members>
+        <members>WrappedInfoParserTest</members>
+        <members>sObjectUtility</members>
+        <members>scriptsForQa</members>
+        <members>testEncoder</members>
+        <members>testSecurityUtils</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>SiteFooter</members>
+        <members>SiteHeader</members>
+        <members>SiteLogin</members>
+        <members>SitePoweredBy</members>
+        <name>ApexComponent</name>
+    </types>
+    <types>
+        <members>AnswersHome</members>
+        <members>ApplicationsPdfPage</members>
+        <members>BandwidthExceeded</members>
+        <members>ChangePassword</members>
+        <members>CommunitiesLanding</members>
+        <members>CommunitiesLogin</members>
+        <members>CommunitiesSelfReg</members>
+        <members>CommunitiesSelfRegConfirm</members>
+        <members>CommunitiesTemplate</members>
+        <members>Exception</members>
+        <members>FileNotFound</members>
+        <members>ForgotPassword</members>
+        <members>ForgotPasswordConfirm</members>
+        <members>IdeasHome</members>
+        <members>InMaintenance</members>
+        <members>MyProfilePage</members>
+        <members>PDFGenerator</members>
+        <members>RecaptchaPage</members>
+        <members>SiteLogin</members>
+        <members>SiteRegister</members>
+        <members>SiteRegisterConfirm</members>
+        <members>SiteTemplate</members>
+        <members>StdExceptionTemplate</members>
+        <members>StripeApiPayPAge</members>
+        <members>SubscriptionPage</members>
+        <members>Unauthorized</members>
+        <members>UnderConstruction</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
+        <members>CertificationOnChange</members>
+        <members>CopyTermsAndConditionsToApplicationTrigger</members>
+        <members>InsuranceOnChange</members>
+        <members>LicenseOnChange</members>
+        <members>ProjectShareWithTA</members>
+        <members>SetTermsAndConditionsStatusTrigger</members>
+        <members>SubscriptionTrigger</members>
+        <members>TradeAllyCertificationOnChange</members>
+        <members>TradeAllyInsuranceOnChange</members>
+        <members>TradeAllyLicenseOnChange</members>
+        <members>TradeAllyReferralOnChange</members>
+        <members>TradeAllyTrigger</members>
+        <members>TradeAllyUserOnChange</members>
+        <members>TradeAllyUserTrigger</members>
+        <name>ApexTrigger</name>
+    </types>
+    <types>
+        <members>AppSwitcher</members>
+        <members>Salesforce1</members>
+        <name>AppMenu</name>
+    </types>
+    <types>
+        <members>Application__c.Approve_Application_Submission</members>
+        <name>ApprovalProcess</name>
+    </types>
+    <types>
+        <members>Case</members>
+        <members>Lead</members>
+        <name>AssignmentRules</name>
+    </types>
+    <types>
+        <members>AlertsManagement</members>
+        <members>ApplicationInReviewLightningApp</members>
+        <members>ApplicationInReviewLightningComponent</members>
+        <members>CommunicationHistory</members>
+        <members>CommunicationHistoryItem</members>
+        <members>CommunicationsList</members>
+        <members>ConvertReferral</members>
+        <members>CreateSubscriptionEvt</members>
+        <members>CustomProfileMenu</members>
+        <members>DeclineAllTradeAllyDuplicatesEvent</members>
+        <members>DocumentsTab</members>
+        <members>DuplicateTradeAlliesLightningComponent</members>
+        <members>FieldDisplay</members>
+        <members>HideAdditionSection</members>
+        <members>InputField</members>
+        <members>InputLookup</members>
+        <members>LoginTradeAllyLightningComponent</members>
+        <members>LogsManagement</members>
+        <members>ManageSubscriptionButton</members>
+        <members>NewCommunication</members>
+        <members>NewReferral</members>
+        <members>NewReferralApplication</members>
+        <members>NewTaskCreation</members>
+        <members>OpenStripeForm</members>
+        <members>OutputField</members>
+        <members>ProfileTab</members>
+        <members>ReInitData</members>
+        <members>RecaptchaLightningComponent</members>
+        <members>ReferralsList</members>
+        <members>SelectTradeAllyDuplicateEvent</members>
+        <members>SelfRegisterTradeAllyLightningComponent</members>
+        <members>StartApplication</members>
+        <members>StartApplicationApp</members>
+        <members>SubscriptionPopUp</members>
+        <members>SubscriptionValidator</members>
+        <members>TerritoryHierarchy</members>
+        <members>ToastHandler</members>
+        <members>TradeAlliesList</members>
+        <members>TradeAllyEvents</members>
+        <members>TradeAllyEventsApp</members>
+        <members>TradeAllyEventsItem</members>
+        <members>TradeAllyListItem</members>
+        <members>TradeAllySearch</members>
+        <members>TradeAllySettings</members>
+        <members>TradeAllySettingsApp</members>
+        <members>TradeAllySubscription</members>
+        <members>TradeAllySubscriptionApp</members>
+        <members>TradeAllySubscriptionItem</members>
+        <members>WasGoogleRecaptchaPassedEvent</members>
+        <members>forgotPassword</members>
+        <members>loginForm</members>
+        <members>selfRegister</members>
+        <members>setExpId</members>
+        <members>setStartUrl</members>
+        <members>testCommunications</members>
+        <name>AuraDefinitionBundle</name>
+    </types>
+    <types>
+        <members>Case</members>
+        <members>Lead</members>
+        <name>AutoResponseRules</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>BrandingSet</name>
+    </types>
+    <types>
+        <members>SelfSignedCert_21Jun2018_092801</members>
+        <name>Certificate</name>
+    </types>
+    <types>
+        <members>DataCloudGeoLocation</members>
+        <name>CleanDataService</name>
+    </types>
+    <types>
+        <members>Internal Community</members>
+        <name>Community</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>CommunityTemplateDefinition</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>CommunityThemeDefinition</name>
+    </types>
+    <types>
+        <members>Force_com</members>
+        <members>standard__AppLauncher</members>
+        <members>standard__Chatter</members>
+        <members>standard__Community</members>
+        <members>standard__Content</members>
+        <members>standard__LightningInstrumentation</members>
+        <members>standard__LightningSales</members>
+        <members>standard__LightningSalesConsole</members>
+        <members>standard__LightningService</members>
+        <members>standard__Marketing</members>
+        <members>standard__Platform</members>
+        <members>standard__Sales</members>
+        <members>standard__Service</members>
+        <members>standard__ServiceConsole</members>
+        <members>standard__Sites</members>
+        <name>CustomApplication</name>
+    </types>
+    <types>
+        <members>CustomLabels</members>
+        <name>CustomLabels</name>
+    </types>
+    <types>
+        <members>Stripe_Settings_Object.Stripe_Settings</members>
+        <name>CustomMetadata</name>
+    </types>
+    <types>
+        <members>Account</members>
+        <members>AccountBrand</members>
+        <members>AccountContactRole</members>
+        <members>Activity</members>
+        <members>Application_Settings__c</members>
+        <members>Application__c</members>
+        <members>Approval_Processes_Settings__c</members>
+        <members>Asset</members>
+        <members>AssetRelationship</members>
+        <members>AssistantProgress</members>
+        <members>Campaign</members>
+        <members>CampaignMember</members>
+        <members>Card__c</members>
+        <members>Case</members>
+        <members>CaseContactRole</members>
+        <members>Certification__c</members>
+        <members>ChannelProgram</members>
+        <members>ChannelProgramLevel</members>
+        <members>ChannelProgramMember</members>
+        <members>ChatterActivity</members>
+        <members>CollaborationGroup</members>
+        <members>CollaborationGroupMember</members>
+        <members>Contact</members>
+        <members>ContentVersion</members>
+        <members>Contract</members>
+        <members>ContractContactRole</members>
+        <members>Customer_Trade_Ally_Request__c</members>
+        <members>DandBCompany</members>
+        <members>Demographic__c</members>
+        <members>DuplicateRecordItem</members>
+        <members>DuplicateRecordSet</members>
+        <members>EmailMessage</members>
+        <members>Event</members>
+        <members>Event_Attendee__c</members>
+        <members>ExchangeUserMapping</members>
+        <members>FeedItem</members>
+        <members>ForecastingCategoryMapping</members>
+        <members>Idea</members>
+        <members>Insurance__c</members>
+        <members>Invoice__c</members>
+        <members>Knowledge__kav</members>
+        <members>Lead</members>
+        <members>License__c</members>
+        <members>Log__c</members>
+        <members>Macro</members>
+        <members>MacroAction</members>
+        <members>MacroInstruction</members>
+        <members>NetworkMember</members>
+        <members>Opportunity</members>
+        <members>OpportunityCompetitor</members>
+        <members>OpportunityContactRole</members>
+        <members>OpportunityLineItem</members>
+        <members>Order</members>
+        <members>OrderItem</members>
+        <members>OrgDeleteRequest</members>
+        <members>Other_Document__c</members>
+        <members>PartnerFundAllocation</members>
+        <members>PartnerFundClaim</members>
+        <members>PartnerFundRequest</members>
+        <members>PartnerMarketingBudget</members>
+        <members>PartnerRole</members>
+        <members>Pricebook2</members>
+        <members>PricebookEntry</members>
+        <members>Product2</members>
+        <members>Program_Budget__c</members>
+        <members>Program_Goal__c</members>
+        <members>Program_Specialty__c</members>
+        <members>Program__c</members>
+        <members>Project__c</members>
+        <members>QuickText</members>
+        <members>RecordAction</members>
+        <members>Referral_Program__c</members>
+        <members>Referral_Specialty__c</members>
+        <members>Referral__c</members>
+        <members>Request__c</members>
+        <members>SOSSession</members>
+        <members>SOSSessionActivity</members>
+        <members>Scorecard</members>
+        <members>ScorecardAssociation</members>
+        <members>ScorecardMetric</members>
+        <members>SingleFilterInfoWrapper__c</members>
+        <members>Site</members>
+        <members>Site__c</members>
+        <members>Solution</members>
+        <members>Specialty__c</members>
+        <members>StreamingChannel</members>
+        <members>Stripe_Settings_Object__mdt</members>
+        <members>Stripe_Settings__c</members>
+        <members>Subscription_Products__c</members>
+        <members>Task</members>
+        <members>Tax__c</members>
+        <members>Terms_and_Conditions__c</members>
+        <members>Territory_Assignment__c</members>
+        <members>Territory__c</members>
+        <members>Topic</members>
+        <members>TopicAssignment</members>
+        <members>Trade_Ally_Certification__c</members>
+        <members>Trade_Ally_Event__c</members>
+        <members>Trade_Ally_Insurance__c</members>
+        <members>Trade_Ally_License__c</members>
+        <members>Trade_Ally_Other_Document__c</members>
+        <members>Trade_Ally_Owner_Settings__c</members>
+        <members>Trade_Ally_Reference__c</members>
+        <members>Trade_Ally_Referral__c</members>
+        <members>Trade_Ally_Safe_Container__c</members>
+        <members>Trade_Ally_Specialty__c</members>
+        <members>Trade_Ally_Subscription__c</members>
+        <members>Trade_Ally_Tax__c</members>
+        <members>Trade_Ally_Type_Application_Stages_map__mdt</members>
+        <members>Transaction__c</members>
+        <members>User</members>
+        <members>UserProvisioningRequest</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Application_Settings__c-en_US</members>
+        <members>Application__c-en_US</members>
+        <members>Approval_Processes_Settings__c-en_US</members>
+        <members>Card__c-en_US</members>
+        <members>Certification__c-en_US</members>
+        <members>Customer_Trade_Ally_Request__c-en_US</members>
+        <members>Event_Attendee__c-en_US</members>
+        <members>Insurance__c-en_US</members>
+        <members>Invoice__c-en_US</members>
+        <members>Knowledge__kav-en_US</members>
+        <members>License__c-en_US</members>
+        <members>Log__c-en_US</members>
+        <members>Program_Budget__c-en_US</members>
+        <members>Program_Goal__c-en_US</members>
+        <members>Program_Specialty__c-en_US</members>
+        <members>Program__c-en_US</members>
+        <members>Project__c-en_US</members>
+        <members>Referral_Program__c-en_US</members>
+        <members>Referral_Specialty__c-en_US</members>
+        <members>Referral__c-en_US</members>
+        <members>Request__c-en_US</members>
+        <members>SingleFilterInfoWrapper__c-en_US</members>
+        <members>Site__c-en_US</members>
+        <members>Specialty__c-en_US</members>
+        <members>Stripe_Settings_Object__mdt-en_US</members>
+        <members>Stripe_Settings__c-en_US</members>
+        <members>Subscription_Products__c-en_US</members>
+        <members>Terms_and_Conditions__c-en_US</members>
+        <members>Territory_Assignment__c-en_US</members>
+        <members>Territory__c-en_US</members>
+        <members>Trade_Ally_Certification__c-en_US</members>
+        <members>Trade_Ally_Event__c-en_US</members>
+        <members>Trade_Ally_Insurance__c-en_US</members>
+        <members>Trade_Ally_License__c-en_US</members>
+        <members>Trade_Ally_Owner_Settings__c-en_US</members>
+        <members>Trade_Ally_Reference__c-en_US</members>
+        <members>Trade_Ally_Referral__c-en_US</members>
+        <members>Trade_Ally_Safe_Container__c-en_US</members>
+        <members>Trade_Ally_Specialty__c-en_US</members>
+        <members>Trade_Ally_Subscription__c-en_US</members>
+        <members>Transaction__c-en_US</members>
+        <name>CustomObjectTranslation</name>
+    </types>
+    <types>
+        <members>StripeRest</members>
+        <members>Trade_Ally</members>
+        <members>TradyAllyTestCommunity</members>
+        <name>CustomSite</name>
+    </types>
+    <types>
+        <members>Application__c</members>
+        <members>Certification__c</members>
+        <members>Communication</members>
+        <members>Insurance__c</members>
+        <members>Knowledge__kav</members>
+        <members>License__c</members>
+        <members>Log__c</members>
+        <members>Program__c</members>
+        <members>Project__c</members>
+        <members>Referral__c</members>
+        <members>Request__c</members>
+        <members>Specialty__c</members>
+        <members>Terms_and_Conditions__c</members>
+        <members>Territory__c</members>
+        <members>TradeAllyEvents</members>
+        <members>Trade_Ally_Event__c</members>
+        <members>Trade_Ally_License__c</members>
+        <members>Trade_Ally_Referral__c</members>
+        <members>Trade_Ally_Safe_Container__c</members>
+        <members>Trade_Ally_Settings</members>
+        <members>Trade_Ally_Subscription__c</members>
+        <name>CustomTab</name>
+    </types>
+    <types>
+        <members>Referral_Folder</members>
+        <members>Referral_Folder/My_Referral_Dashboard</members>
+        <name>Dashboard</name>
+    </types>
+    <types>
+        <members>Communications</members>
+        <members>Incentives</members>
+        <members>Marketing_Materials</members>
+        <members>Tools</members>
+        <name>DataCategoryGroup</name>
+    </types>
+    <types>
+        <members>Contact.Standard_Rule_for_Contacts_with_Duplicate_Leads</members>
+        <members>Lead.Standard_Rule_for_Leads_with_Duplicate_Contacts</members>
+        <name>DuplicateRule</name>
+    </types>
+    <types>
+        <members>Trade_Ally_Connect_Email_Templates</members>
+        <members>Trade_Ally_Connect_Email_Templates/Certification_Expiry</members>
+        <members>Trade_Ally_Connect_Email_Templates/Insurance_Expiry</members>
+        <members>Trade_Ally_Connect_Email_Templates/License_Expiry</members>
+        <members>Trade_Ally_Connect_Email_Templates/Trade_Ally_Referral_Notification</members>
+        <members>unfiled$public</members>
+        <members>unfiled$public/CommunityChangePasswordEmailTemplate</members>
+        <members>unfiled$public/CommunityForgotPasswordEmailTemplate</members>
+        <members>unfiled$public/CommunityLockoutEmailTemplate</members>
+        <members>unfiled$public/CommunityVerificationEmailTemplate</members>
+        <members>unfiled$public/CommunityWelcomeEmailTemplate</members>
+        <members>unfiled$public/Insurance_Expiration_Alert</members>
+        <members>unfiled$public/MarketingProductInquiryResponse</members>
+        <members>unfiled$public/Provider_Agreement_Expiring</members>
+        <members>unfiled$public/SUPPORTSelfServiceNewCommentNotificationSAMPLE</members>
+        <members>unfiled$public/SUPPORTSelfServiceNewUserLoginInformationSAMPLE</members>
+        <members>unfiled$public/SUPPORTSelfServiceResetPasswordSAMPLE</members>
+        <members>unfiled$public/SalesNewCustomerEmail</members>
+        <members>unfiled$public/SupportCaseAssignmentNotification</members>
+        <members>unfiled$public/SupportCaseCreatedPhoneInquiries</members>
+        <members>unfiled$public/SupportCaseCreatedWebInquiries</members>
+        <members>unfiled$public/SupportCaseResponse</members>
+        <members>unfiled$public/SupportEscalatedCaseNotification</members>
+        <members>unfiled$public/SupportEscalatedCaseReassignment</members>
+        <members>unfiled$public/SupportSelfServiceNewLoginandPassword</members>
+        <members>unfiled$public/SupportSelfServiceResetPassword</members>
+        <name>EmailTemplate</name>
+    </types>
+    <types>
+        <members>Account_Record_Page</members>
+        <members>Application_Record_Page</members>
+        <members>Communication</members>
+        <members>Custom_Referral_Page</members>
+        <members>LightningSalesConsole_UtilityBar</members>
+        <members>LightningService_UtilityBar</members>
+        <members>Referral_Record_Page</members>
+        <members>Referral_Record_Page1</members>
+        <members>Referral_Record_Page2</members>
+        <members>Territory_Record_Page</members>
+        <members>Territory_Record_Page1</members>
+        <members>Territory_Record_Page2</members>
+        <members>Territory_Record_Page3</members>
+        <members>Trade_Ally_Account_Record_Page</members>
+        <members>Trade_Ally_Connect_Template_Account_Detail</members>
+        <members>Trade_Ally_Connect_Template_Account_List</members>
+        <members>Trade_Ally_Connect_Template_Account_Management</members>
+        <members>Trade_Ally_Connect_Template_Account_Related_List</members>
+        <members>Trade_Ally_Connect_Template_Alerts_Management</members>
+        <members>Trade_Ally_Connect_Template_Article_Detail</members>
+        <members>Trade_Ally_Connect_Template_Canvasapp_Page</members>
+        <members>Trade_Ally_Connect_Template_Case_Detail</members>
+        <members>Trade_Ally_Connect_Template_Case_List</members>
+        <members>Trade_Ally_Connect_Template_Case_Related_List</members>
+        <members>Trade_Ally_Connect_Template_Check_Password</members>
+        <members>Trade_Ally_Connect_Template_Communications</members>
+        <members>Trade_Ally_Connect_Template_Contact_Support</members>
+        <members>Trade_Ally_Connect_Template_Create_Record</members>
+        <members>Trade_Ally_Connect_Template_Custom_messages</members>
+        <members>Trade_Ally_Connect_Template_Dashboard_Detail</members>
+        <members>Trade_Ally_Connect_Template_Dashboard_List</members>
+        <members>Trade_Ally_Connect_Template_Dashboard_Related_List</members>
+        <members>Trade_Ally_Connect_Template_Error</members>
+        <members>Trade_Ally_Connect_Template_Feed_Detail</members>
+        <members>Trade_Ally_Connect_Template_File_Detail</members>
+        <members>Trade_Ally_Connect_Template_File_List</members>
+        <members>Trade_Ally_Connect_Template_File_Related_List</members>
+        <members>Trade_Ally_Connect_Template_Forgot_Password</members>
+        <members>Trade_Ally_Connect_Template_Group_Detail</members>
+        <members>Trade_Ally_Connect_Template_Group_List</members>
+        <members>Trade_Ally_Connect_Template_Group_Related_List</members>
+        <members>Trade_Ally_Connect_Template_Home</members>
+        <members>Trade_Ally_Connect_Template_IncentiveResources</members>
+        <members>Trade_Ally_Connect_Template_Login</members>
+        <members>Trade_Ally_Connect_Template_Login_Error</members>
+        <members>Trade_Ally_Connect_Template_Messages</members>
+        <members>Trade_Ally_Connect_Template_Project_Detail</members>
+        <members>Trade_Ally_Connect_Template_Project_List</members>
+        <members>Trade_Ally_Connect_Template_Project_Related_List</members>
+        <members>Trade_Ally_Connect_Template_Question_Detail</members>
+        <members>Trade_Ally_Connect_Template_Record_Detail</members>
+        <members>Trade_Ally_Connect_Template_Record_List</members>
+        <members>Trade_Ally_Connect_Template_Register</members>
+        <members>Trade_Ally_Connect_Template_Related_Record_List</members>
+        <members>Trade_Ally_Connect_Template_Report_Detail</members>
+        <members>Trade_Ally_Connect_Template_Report_List</members>
+        <members>Trade_Ally_Connect_Template_Report_Related_List</members>
+        <members>Trade_Ally_Connect_Template_Resources</members>
+        <members>Trade_Ally_Connect_Template_Sample_Lightning_Layouts</members>
+        <members>Trade_Ally_Connect_Template_Search</members>
+        <members>Trade_Ally_Connect_Template_Sfdc_Page</members>
+        <members>Trade_Ally_Connect_Template_Stream_Detail</members>
+        <members>Trade_Ally_Connect_Template_Stream_List</members>
+        <members>Trade_Ally_Connect_Template_Stream_Related_List</members>
+        <members>Trade_Ally_Connect_Template_Subscription</members>
+        <members>Trade_Ally_Connect_Template_Top_Articles</members>
+        <members>Trade_Ally_Connect_Template_Topic_Catalog</members>
+        <members>Trade_Ally_Connect_Template_Topic_Detail</members>
+        <members>Trade_Ally_Connect_Template_User_List</members>
+        <members>Trade_Ally_Connect_Template_User_Profile</members>
+        <members>Trade_Ally_Connect_Template_User_Related_List</members>
+        <members>Trade_Ally_Connect_Template_User_Settings</members>
+        <members>Trade_Ally_Connect_Template_themeLayout_Default</members>
+        <members>Trade_Ally_Connect_Template_themeLayout_Login</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Account_Detail</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Account_List</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Account_Management</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Account_Related_List</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Alerts_Management</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Application</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Article_Detail</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Canvasapp_Page</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Case_Detail</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Case_List</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Case_Related_List</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Check_Password</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Communications</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Companies</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Contact_Support</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Create_Record</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Custom_messages</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Dashboard_Detail</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Dashboard_List</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Dashboard_Related_List</members>
+        <members>Trade_Ally_Demo_Template_v1_3_DocumentsTab</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Error</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Feed_Detail</members>
+        <members>Trade_Ally_Demo_Template_v1_3_File_Detail</members>
+        <members>Trade_Ally_Demo_Template_v1_3_File_List</members>
+        <members>Trade_Ally_Demo_Template_v1_3_File_Related_List</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Forgot_Password</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Group_Detail</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Group_List</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Group_Related_List</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Home</members>
+        <members>Trade_Ally_Demo_Template_v1_3_IncentiveResources</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Login</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Login_Error</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Messages</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Project_Detail</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Project_List</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Project_Related_List</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Question_Detail</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Record_Detail</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Record_List</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Register</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Related_Record_List</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Report_Detail</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Report_List</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Report_Related_List</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Resources</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Sample_Lightning_Layouts</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Search</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Sfdc_Page</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Stream_Detail</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Stream_List</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Stream_Related_List</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Subscription</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Top_Articles</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Topic_Catalog</members>
+        <members>Trade_Ally_Demo_Template_v1_3_Topic_Detail</members>
+        <members>Trade_Ally_Demo_Template_v1_3_User_List</members>
+        <members>Trade_Ally_Demo_Template_v1_3_User_Profile</members>
+        <members>Trade_Ally_Demo_Template_v1_3_User_Related_List</members>
+        <members>Trade_Ally_Demo_Template_v1_3_User_Settings</members>
+        <members>Trade_Ally_Demo_Template_v1_3_themeLayout_Default</members>
+        <members>Trade_Ally_Demo_Template_v1_3_themeLayout_Login</members>
+        <members>Trade_Ally_Subscription_Record_Page</members>
+        <name>FlexiPage</name>
+    </types>
+    <types>
+        <members>Update_Number_Of_Active_Users-1</members>
+        <name>Flow</name>
+    </types>
+    <types>
+        <members>Update_Number_Of_Active_Users</members>
+        <name>FlowDefinition</name>
+    </types>
+    <types>
+        <members>Locations</members>
+        <members>Sector</members>
+        <members>State_Incorporated</members>
+        <name>GlobalValueSet</name>
+    </types>
+    <types>
+        <members>Application_Administration</members>
+        <name>Group</name>
+    </types>
+    <types>
+        <members>DE Default</members>
+        <name>HomePageLayout</name>
+    </types>
+    <types>
+        <members>mule</members>
+        <name>InstalledPackage</name>
+    </types>
+    <types>
+        <members>Account-Account %28Marketing%29 Layout</members>
+        <members>Account-Account %28Sales%29 Layout</members>
+        <members>Account-Account %28Support%29 Layout</members>
+        <members>Account-Account Layout</members>
+        <members>AccountBrand-Account BrandLayout</members>
+        <members>Application__c-Application Layout</members>
+        <members>Asset-Asset Layout</members>
+        <members>AssetRelationship-Asset Relationship Layout</members>
+        <members>Campaign-Campaign Layout</members>
+        <members>CampaignMember-Campaign Member Page Layout</members>
+        <members>Card__c-Card Layout</members>
+        <members>Case-Case %28Marketing%29 Layout</members>
+        <members>Case-Case %28Sales%29 Layout</members>
+        <members>Case-Case %28Support%29 Layout</members>
+        <members>Case-Case Layout</members>
+        <members>CaseClose-Close Case Layout</members>
+        <members>CaseInteraction-Case Feed Layout</members>
+        <members>Certification__c-Certification Layout</members>
+        <members>CollaborationGroup-Group Layout</members>
+        <members>CommunityMemberLayout-Community Member Layout</members>
+        <members>Contact-Contact %28Marketing%29 Layout</members>
+        <members>Contact-Contact %28Sales%29 Layout</members>
+        <members>Contact-Contact %28Support%29 Layout</members>
+        <members>Contact-Contact Layout</members>
+        <members>ContentVersion-General</members>
+        <members>Contract-Contract Layout</members>
+        <members>Customer_Trade_Ally_Request__c-Customer Trade Ally Request Layout</members>
+        <members>DandBCompany-D%26B Company Layout</members>
+        <members>DuplicateRecordSet-Duplicate Record Set Layout</members>
+        <members>EmailMessage-Email Message Layout</members>
+        <members>Event-Event Layout</members>
+        <members>Event_Attendee__c-Event Attendee Layout</members>
+        <members>FeedItem-Feed Item Layout</members>
+        <members>Global-Global Layout</members>
+        <members>Idea-Idea Layout</members>
+        <members>Insurance__c-Insurance Layout</members>
+        <members>Invoice__c-Invoice Layout</members>
+        <members>Knowledge__kav-Knowledge Layout</members>
+        <members>Lead-Lead %28Marketing%29 Layout</members>
+        <members>Lead-Lead %28Sales%29 Layout</members>
+        <members>Lead-Lead %28Support%29 Layout</members>
+        <members>Lead-Lead Layout</members>
+        <members>License__c-License Layout</members>
+        <members>Log__c-Log Layout</members>
+        <members>Macro-Macro Layout</members>
+        <members>Opportunity-Opportunity %28Marketing%29 Layout</members>
+        <members>Opportunity-Opportunity %28Sales%29 Layout</members>
+        <members>Opportunity-Opportunity %28Support%29 Layout</members>
+        <members>Opportunity-Opportunity Layout</members>
+        <members>OpportunityLineItem-Opportunity Product Layout</members>
+        <members>Order-Order Layout</members>
+        <members>OrderItem-Order Product Layout</members>
+        <members>Pricebook2-Price Book Layout</members>
+        <members>PricebookEntry-Price Book Entry Layout</members>
+        <members>Product2-Product Layout</members>
+        <members>Program_Budget__c-Program Budget Layout</members>
+        <members>Program_Goal__c-Program Goal Layout</members>
+        <members>Program_Specialty__c-Program Specialty Layout</members>
+        <members>Program__c-Program Layout</members>
+        <members>Project__c-Project Layout</members>
+        <members>QuickText-Quick Text Layout</members>
+        <members>Referral_Program__c-Referral Program Layout</members>
+        <members>Referral_Specialty__c-Referral Specialty Layout</members>
+        <members>Referral__c-Referral Layout</members>
+        <members>Request__c-Request Layout</members>
+        <members>SOSSession-SOS Session Layout</members>
+        <members>SOSSessionActivity-SOS Session Activity Layout</members>
+        <members>Scorecard-Scorecard Layout</members>
+        <members>ScorecardAssociation-Scorecard Association Layout</members>
+        <members>ScorecardMetric-Scorecard Metric Layout</members>
+        <members>SingleFilterInfoWrapper__c-SingleFilterInfoWrapper Layout</members>
+        <members>Site__c-Site Layout</members>
+        <members>Solution-Solution Layout</members>
+        <members>Specialty__c-Specialty Layout</members>
+        <members>Stripe_Settings_Object__mdt-Stripe Settings Object Layout</members>
+        <members>Task-Task Layout</members>
+        <members>Terms_and_Conditions__c-Terms and Conditions Layout</members>
+        <members>Territory_Assignment__c-Territory Assignment Layout</members>
+        <members>Territory__c-Territory Layout</members>
+        <members>Trade_Ally_Certification__c-Trade Ally Certification Layout</members>
+        <members>Trade_Ally_Event__c-Trade Ally Event Layout</members>
+        <members>Trade_Ally_Insurance__c-Trade Ally Insurance Layout</members>
+        <members>Trade_Ally_License__c-Trade Ally License Layout</members>
+        <members>Trade_Ally_Reference__c-Trade Ally Reference Layout</members>
+        <members>Trade_Ally_Referral__c-Trade Ally Referral Layout</members>
+        <members>Trade_Ally_Safe_Container__c-Trade Ally Self Register Support Layout</members>
+        <members>Trade_Ally_Specialty__c-Trade Ally Specialty Layout</members>
+        <members>Trade_Ally_Subscription__c-Trade Ally Subscription Layout</members>
+        <members>Transaction__c-Transaction Layout</members>
+        <members>User-User Layout</members>
+        <members>UserAlt-User Profile Layout</members>
+        <members>UserAppMenuItem-Application Layout</members>
+        <members>UserProvAccount-User Provisioning Account Layout</members>
+        <members>UserProvisioningLog-User Provisioning Log Layout</members>
+        <members>UserProvisioningRequest-User Provisioning Request Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>Insurance_Expiration_Alert</members>
+        <name>Letterhead</name>
+    </types>
+    <types>
+        <members>Trade Ally.Block_banned_keywords</members>
+        <members>Trade Ally.Flag_banned</members>
+        <members>Trade Ally.Freeze_for_frequent_posting</members>
+        <members>Trade Ally.Replace_banned</members>
+        <members>Trade Ally.Review_the_first_post</members>
+        <members>TradeAllyAdminGuide.Block_banned_keywords</members>
+        <members>TradeAllyAdminGuide.Flag_banned</members>
+        <members>TradeAllyAdminGuide.Freeze_for_frequent_posting</members>
+        <members>TradeAllyAdminGuide.Replace_banned</members>
+        <members>TradeAllyAdminGuide.Review_the_first_post</members>
+        <members>TradyAllyTestCommunity.Block_banned_keywords</members>
+        <members>TradyAllyTestCommunity.Flag_banned</members>
+        <members>TradyAllyTestCommunity.Freeze_for_frequent_posting</members>
+        <members>TradyAllyTestCommunity.Replace_banned</members>
+        <members>TradyAllyTestCommunity.Review_the_first_post</members>
+        <name>ModerationRule</name>
+    </types>
+    <types>
+        <members>Trade Ally</members>
+        <members>TradyAllyTestCommunity</members>
+        <name>Network</name>
+    </types>
+    <types>
+        <members>Knowledge_Manager</members>
+        <members>Password_Never_Expires</members>
+        <members>TA_Basic</members>
+        <members>Test_Chatter_set</members>
+        <members>Trade_Ally_Plus</members>
+        <name>PermissionSet</name>
+    </types>
+    <types>
+        <members>Admin</members>
+        <members>Analytics Cloud Integration User</members>
+        <members>Analytics Cloud Security User</members>
+        <members>Authenticated Website</members>
+        <members>Chatter External User</members>
+        <members>Chatter Free User</members>
+        <members>Chatter Moderator User</members>
+        <members>Chatter Only User</members>
+        <members>Company Communities User</members>
+        <members>ContractManager</members>
+        <members>Cross Org Data Proxy User</members>
+        <members>Custom Community Profile</members>
+        <members>Custom Customer Community Plus</members>
+        <members>Custom%3A Marketing Profile</members>
+        <members>Custom%3A Sales Profile</members>
+        <members>Custom%3A Support Profile</members>
+        <members>Customer Community Login User</members>
+        <members>Customer Community Plus Login User</members>
+        <members>Customer Community Plus User</members>
+        <members>Customer Community User</members>
+        <members>Customer Portal Manager Custom</members>
+        <members>Customer Portal Manager Standard</members>
+        <members>CustomerManager</members>
+        <members>Force%2Ecom - Free User</members>
+        <members>Gold Partner User</members>
+        <members>Guest License User</members>
+        <members>High Volume Customer Portal User</members>
+        <members>HighVolumePortal</members>
+        <members>Manufacturer</members>
+        <members>MarketingProfile</members>
+        <members>Overage Customer Portal Manager Custom</members>
+        <members>Overage Customer Portal Manager Standard</members>
+        <members>Overage High Volume Customer Portal User</members>
+        <members>Partner</members>
+        <members>Partner Community Login User</members>
+        <members>Partner Community User</members>
+        <members>PlatformPortal</members>
+        <members>ReadOnly</members>
+        <members>ServiceCloud</members>
+        <members>Silver Partner User</members>
+        <members>SolutionManager</members>
+        <members>Standard</members>
+        <members>StandardAul</members>
+        <members>StripeRest Profile</members>
+        <members>Trade Ally Manager</members>
+        <members>Trade Ally Profile</members>
+        <members>Trade Ally Technician</members>
+        <members>TradeAllyAdminGuide Profile</members>
+        <members>TradyAllyTestCommunity Profile</members>
+        <members>Utility Manager</members>
+        <members>Work%2Ecom Only User</members>
+        <name>Profile</name>
+    </types>
+    <types>
+        <members>Custom_Community_Profile_profilePasswordPolicy1529658984976</members>
+        <members>Custom_Customer_Community_Plus_profilePasswordPolicy1530118758069</members>
+        <members>Custom_Salesforce_Administrator_profilePasswordPolicy1531831551482</members>
+        <members>Customer_Community_Plus_User_profilePasswordPolicy1533807821260</members>
+        <members>PT1_profilePasswordPolicy1531164991948</members>
+        <members>Trade_Ally_Profile_profilePasswordPolicy1531408505859</members>
+        <members>TradyAllyTestCommunity_Profile_profilePasswordPolicy1534424468484</members>
+        <members>X24_profilePasswordPolicy1436468839312</members>
+        <name>ProfilePasswordPolicy</name>
+    </types>
+    <types>
+        <members>Custom_Community_Profile_profileSessionSetting1529658985029</members>
+        <members>Custom_Customer_Community_Plus_profileSessionSetting1530118758112</members>
+        <members>Customer_Community_Plus_User_profileSessionSetting1533807821313</members>
+        <members>PT1_profileSessionSetting1531164992013</members>
+        <members>Trade_Ally_Profile_profileSessionSetting1531408505968</members>
+        <members>TradyAllyTestCommunity_Profile_profileSessionSetting1534424468522</members>
+        <members>X24_profileSessionSetting1436468839240</members>
+        <name>ProfileSessionSetting</name>
+    </types>
+    <types>
+        <members>Applications_Needing_Approval</members>
+        <members>InternationalEscalations</members>
+        <members>InternationalLeads</members>
+        <members>InternationalPlatinumGold</members>
+        <members>InternationalSilverBronze</members>
+        <members>PartnerRelations</members>
+        <members>USEscalations</members>
+        <members>USLeads</members>
+        <members>USPlatinumGold</members>
+        <members>USSilverBronze</members>
+        <name>Queue</name>
+    </types>
+    <types>
+        <members>Case.NewChildCase</members>
+        <members>CollaborationGroup.NewGroupMember</members>
+        <members>CollaborationGroup.NewGroupRecord</members>
+        <members>FeedItem.NewTaskFromFeedItem</members>
+        <members>LogACall</members>
+        <members>NewAccount</members>
+        <members>NewCase</members>
+        <members>NewContact</members>
+        <members>NewEvent</members>
+        <members>NewGroup</members>
+        <members>NewLead</members>
+        <members>NewNote</members>
+        <members>NewOpportunity</members>
+        <members>NewTask</members>
+        <members>SendEmail</members>
+        <members>Task.Defer</members>
+        <members>Task.EditDescription</members>
+        <members>Task.UpdatePriority</members>
+        <members>Task.UpdateStatus</members>
+        <members>Trade_Ally_Referral__c.Convert_Referral</members>
+        <name>QuickAction</name>
+    </types>
+    <types>
+        <members>ApexDevNet</members>
+        <members>StripeAPI</members>
+        <name>RemoteSiteSetting</name>
+    </types>
+    <types>
+        <members>Utility_Manager_Reports</members>
+        <members>Utility_Manager_Reports/Interaction_Activities_by_TA_Managers</members>
+        <members>Utility_Manager_Reports/Interaction_Activities_by_Trade_Allies</members>
+        <members>Utility_Manager_Reports/Project_Pipeline_Forecasting_by_Stage</members>
+        <members>Utility_Manager_Reports/Referrals_Assigned_Per_Trade_Ally</members>
+        <members>Utility_Manager_Reports/Trade_Allies_by_Program</members>
+        <members>unfiled$public</members>
+        <members>unfiled$public/Referrals_By_Age</members>
+        <name>Report</name>
+    </types>
+    <types>
+        <members>AcmeIncCustomerUser</members>
+        <members>CEO</members>
+        <members>CFO</members>
+        <members>COO</members>
+        <members>CarIndCustomerUser</members>
+        <members>ChannelSalesTeam</members>
+        <members>CustomerSupportInternational</members>
+        <members>CustomerSupportNorthAmerica</members>
+        <members>Customer_Manager</members>
+        <members>DirectorChannelSales</members>
+        <members>DirectorDirectSales</members>
+        <members>EasternSalesTeam</members>
+        <members>ExtremelyTradeAlly3CustomerUser</members>
+        <members>InstallationRepairServices</members>
+        <members>JohnSmithCustomerUser</members>
+        <members>MarketingTeam</members>
+        <members>MischenkoCOCustomerUser</members>
+        <members>MyNewCompanyCustomerUser</members>
+        <members>NEWDEMOCOMPANYCustomerUser</members>
+        <members>NEWTESTCOMPANYCustomerUser</members>
+        <members>NewTac264TradeAllyCustomerUser</members>
+        <members>NexantCustomerUser</members>
+        <members>NexantCustomerUser1</members>
+        <members>NexantCustomerUser2</members>
+        <members>SVPCustomerServiceSupport</members>
+        <members>SVPHumanResources</members>
+        <members>SVPSalesMarketing</members>
+        <members>SaylorIncCustomerUser</members>
+        <members>TAC415CoCustomerUser</members>
+        <members>TEEEEEEEEESTCustomerUser</members>
+        <members>TESTRECORDTYPECONTROLLERCustomerUser</members>
+        <members>Tac415SampleCoCustomerUser</members>
+        <members>Tac417CoCustomerUser</members>
+        <members>Tac424CoCustomerUser</members>
+        <members>TestNick2CustomerUser</members>
+        <members>TestNickCustomerUser</members>
+        <members>TestTradeAlly3CustomerUser</members>
+        <members>TestTradeAlly3CustomerUser1</members>
+        <members>TestTradeAlly3CustomerUser2</members>
+        <members>TestTradeAllyCustomerUser</members>
+        <members>TestingCoCustomerUser</members>
+        <members>TestingTradeAllyCustomerUser</members>
+        <members>TradeAlly3CustomerUser</members>
+        <members>TradeAlly3CustomerUser1</members>
+        <members>TradeAlly3CustomerUser2</members>
+        <members>TradeAlly3CustomerUser3</members>
+        <members>TradeAlly3CustomerUser4</members>
+        <members>TradeAllyForTestCustomerUser</members>
+        <members>TradeAllySecondCustomerUser</members>
+        <members>VPInternationalSales</members>
+        <members>VPMarketing</members>
+        <members>VPNorthAmericanSales</members>
+        <members>WashingtonCoCustomerUser</members>
+        <members>WashingtonCompanyCustomerUser</members>
+        <members>WashingtonCustomerUser</members>
+        <members>WesternSalesTeam</members>
+        <members>dsfsdCustomerUser</members>
+        <members>erwrewCustomerUser</members>
+        <members>mycorp13CustomerUser</members>
+        <members>testCustomerUser</members>
+        <members>testCustomerUser1</members>
+        <members>testchildCustomerUser</members>
+        <members>testcompnameCustomerUser</members>
+        <members>testgmalcomCustomerUser</members>
+        <members>waringfortest22CustomerUser</members>
+        <members>waringfortestCustomerUser</members>
+        <members>x25533TRADEALLLYYCustomerUser</members>
+        <members>x25533TRADEALLLYYCustomerUser1</members>
+        <name>Role</name>
+    </types>
+    <types>
+        <members>Account</members>
+        <members>Activities</members>
+        <members>Address</members>
+        <members>BusinessHours</members>
+        <members>Case</members>
+        <members>Company</members>
+        <members>Contract</members>
+        <members>Entitlement</members>
+        <members>FieldService</members>
+        <members>FileUploadAndDownloadSecurity</members>
+        <members>Forecasting</members>
+        <members>Ideas</members>
+        <members>Knowledge</members>
+        <members>LiveAgent</members>
+        <members>Macro</members>
+        <members>Mobile</members>
+        <members>Name</members>
+        <members>OmniChannel</members>
+        <members>Opportunity</members>
+        <members>Order</members>
+        <members>OrgPreference</members>
+        <members>PathAssistant</members>
+        <members>Product</members>
+        <members>Quote</members>
+        <members>Search</members>
+        <members>Security</members>
+        <name>Settings</name>
+    </types>
+    <types>
+        <members>Account</members>
+        <members>Application_Settings__c</members>
+        <members>Application__c</members>
+        <members>Approval_Processes_Settings__c</members>
+        <members>Asset</members>
+        <members>Campaign</members>
+        <members>Card__c</members>
+        <members>Case</members>
+        <members>Certification__c</members>
+        <members>ChannelProgram</members>
+        <members>Contact</members>
+        <members>Customer_Trade_Ally_Request__c</members>
+        <members>FlowInterview</members>
+        <members>Insurance__c</members>
+        <members>Lead</members>
+        <members>License__c</members>
+        <members>ListEmail</members>
+        <members>Log__c</members>
+        <members>Opportunity</members>
+        <members>Order</members>
+        <members>PartnerFundAllocation</members>
+        <members>PartnerFundClaim</members>
+        <members>PartnerFundRequest</members>
+        <members>PartnerMarketingBudget</members>
+        <members>Program__c</members>
+        <members>Referral__c</members>
+        <members>Request__c</members>
+        <members>SingleFilterInfoWrapper__c</members>
+        <members>Specialty__c</members>
+        <members>Stripe_Settings__c</members>
+        <members>Subscription_Products__c</members>
+        <members>Terms_and_Conditions__c</members>
+        <members>Territory__c</members>
+        <members>Trade_Ally_Event__c</members>
+        <members>Trade_Ally_Owner_Settings__c</members>
+        <members>Trade_Ally_Reference__c</members>
+        <members>Trade_Ally_Safe_Container__c</members>
+        <members>Trade_Ally_Subscription__c</members>
+        <members>User</members>
+        <name>SharingRules</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>SharingSet</name>
+    </types>
+    <types>
+        <members>Trade_Ally1</members>
+        <members>TradyAllyTestCommunity1</members>
+        <name>SiteDotCom</name>
+    </types>
+    <types>
+        <members>CardElement</members>
+        <members>SLDS</members>
+        <members>SLDS261</members>
+        <members>SiteSamples</members>
+        <members>StrypeJs</members>
+        <members>StrypeJsV3</members>
+        <members>html2canvas</members>
+        <members>searchIcon</members>
+        <members>siteAsset_14886c4584114f5ab33fb6a05809d65a</members>
+        <members>siteAsset_3ee8670b719f429e836466c916730092</members>
+        <members>siteAsset_96099ea1d2f147a582ba3466e6d8833e</members>
+        <members>siteAsset_afe580b9ba6c41c79885e7ed97c55860</members>
+        <members>siteAsset_da4d9b6ae84146499e924dcbc9b631c7</members>
+        <members>siteAsset_de4c1420a0b24e01a0882f5351598d04</members>
+        <members>stripeBadge</members>
+        <name>StaticResource</name>
+    </types>
+    <types>
+        <members>Account</members>
+        <members>Application__c</members>
+        <members>Asset</members>
+        <members>Campaign</members>
+        <members>Card__c</members>
+        <members>Case</members>
+        <members>Certification__c</members>
+        <members>ChannelProgram</members>
+        <members>ChannelProgramLevel</members>
+        <members>Contact</members>
+        <members>ContentDocument</members>
+        <members>Contract</members>
+        <members>Customer_Trade_Ally_Request__c</members>
+        <members>Event</members>
+        <members>Event_Attendee__c</members>
+        <members>Insurance__c</members>
+        <members>Invoice__c</members>
+        <members>Knowledge__kav</members>
+        <members>Lead</members>
+        <members>License__c</members>
+        <members>LinkedArticle</members>
+        <members>Log__c</members>
+        <members>Opportunity</members>
+        <members>Order</members>
+        <members>PartnerFundAllocation</members>
+        <members>PartnerFundClaim</members>
+        <members>PartnerFundRequest</members>
+        <members>PartnerMarketingBudget</members>
+        <members>Program_Budget__c</members>
+        <members>Program_Goal__c</members>
+        <members>Program_Specialty__c</members>
+        <members>Program__c</members>
+        <members>Project__c</members>
+        <members>Referral_Program__c</members>
+        <members>Referral_Specialty__c</members>
+        <members>Referral__c</members>
+        <members>Request__c</members>
+        <members>SingleFilterInfoWrapper__c</members>
+        <members>Site__c</members>
+        <members>Solution</members>
+        <members>Specialty__c</members>
+        <members>Task</members>
+        <members>Terms_and_Conditions__c</members>
+        <members>Territory_Assignment__c</members>
+        <members>Territory__c</members>
+        <members>Trade_Ally_Certification__c</members>
+        <members>Trade_Ally_Event__c</members>
+        <members>Trade_Ally_Insurance__c</members>
+        <members>Trade_Ally_License__c</members>
+        <members>Trade_Ally_Reference__c</members>
+        <members>Trade_Ally_Referral__c</members>
+        <members>Trade_Ally_Safe_Container__c</members>
+        <members>Trade_Ally_Specialty__c</members>
+        <members>Trade_Ally_Subscription__c</members>
+        <members>Transaction__c</members>
+        <name>TopicsForObjects</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>Workflow</name>
+    </types>
+    <version>38.0</version>
+</Package>

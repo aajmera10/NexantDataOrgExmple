@@ -1,0 +1,43 @@
+<aura:component >
+
+	<!--Attributes-->
+	<aura:attribute name="communityLoginPageUrl" type="String" default="https://tradeally-developer-edition.na59.force.com/tradeally/s/login"/>
+
+	<!--Content-->
+	<div class="slds-page-header">
+	  <div class="slds-page-header__row">
+		<div class="slds-page-header__col-title">
+		  <div class="slds-media">
+			<div class="slds-media__figure">
+			  <span class="slds-icon_container slds-icon-standard-endorsement" title="Application Complete">
+				<lightning:icon iconName="standard:endorsement" size="large" alternativeText="Application Complete"/>
+				<span class="slds-assistive-text">Application Complete</span>
+			  </span>
+			</div>
+			<div class="slds-media__body">
+			  <div class="slds-page-header__name">
+				<div class="slds-page-header__name-title">
+				  <h1>
+					<span class="slds-page-header__title slds-truncate" title="Application Submitted">
+						{!$Label.c.Application_Submission_Header}</span>
+				  </h1>
+				</div>
+			  </div>
+			  <p class="">&nbsp;</p>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	<div class="slds-scoped-notification slds-media slds-media_center" role="status">
+	  <div class="slds-media__figure">
+		<span class="slds-icon_container slds-icon-utility-answer" title="Information">
+		<lightning:icon iconName="utility:answer" size="medium" alternativeText="Application Complete"/>
+		  <span class="slds-assistive-text">Information</span>
+		</span>
+	  </div>
+	  <div class="slds-media__body">
+		<p>&nbsp;{!$Label.c.Application_Submission_Body}</p>
+	  </div>
+	</div>
+</aura:component>

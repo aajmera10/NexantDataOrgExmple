@@ -1,0 +1,6 @@
+<apex:page controller="PdfDataDisplayController" renderAs="pdf" >
+ <apex:stylesheet value="{!URLFOR($Resource.SLDS, 'styles/salesforce-lightning-design-system.css')}"/>
+
+
+<apex:outputText value="{!PDFData}" escape="false"/>
+</apex:page>
