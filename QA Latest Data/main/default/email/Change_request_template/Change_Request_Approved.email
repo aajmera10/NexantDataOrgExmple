@@ -1,0 +1,13 @@
+Dear {!Change_Request__c.OwnerFullName},<br><br>
+
+Congratulations!  Your SCE Change Request has been approved.<br><br>
+
+Comment: {!ApprovalRequest.Comments}<br><br>
+
+    Change Request Name:  {!Change_Request__c.Name}<br>
+    Created by ID:              {!Change_Request__c.CreatedById}<br>
+    Created Date:  {!Change_Request__c.CreatedDate}<br><br><br>
+    
+
+
+Southern California Edison Trade Ally Network

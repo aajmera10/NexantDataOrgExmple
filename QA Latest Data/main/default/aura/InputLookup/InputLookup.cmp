@@ -1,0 +1,44 @@
+<aura:component access="global" controller="InputLookupController">
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <aura:attribute name="options" type="Object[]" />
+    <aura:attribute name="object" type="String" />
+    <!--<aura:attribute name="label" type="String" />-->
+    <aura:attribute name="name" type="String" />
+    <aura:attribute name="value" type="Id" />
+    <aura:attribute name="textToShow" type="String" />
+    <aura:attribute name="selectMode" type="Boolean" default="true"/>
+    
+    <aura:attribute name="wasUpdated" type="Boolean" default="false"/>
+
+    <aura:attribute name="isList" type="Boolean" default="false"/>
+    
+    <aura:attribute name="searchIconURL" type="String" />
+
+    <div class="lookupCompo">
+        <div class="inputWrap">
+            <ui:inputText value="{!v.name}" class="input" />
+            <button type="button" onclick="{!c.handleInit}" class="btnSearch">
+                <img src="{!v.searchIconURL}" class="searchIcon" alt="Submit" />
+            </button>
+            <div class="clear"></div>
+        </div>
+        <aura:if isTrue="{!v.selectMode}">
+            <select aura:id="normal_show" onchange="{!c.handleValueChange}" class="select hidden_div">
+                <aura:iteration items="{!v.options}" var="option">
+                    <option value="{!option.value}" selected="{!option.value == v.value}">{!option.label}</option>
+                </aura:iteration>
+            </select>
+            <aura:set attribute="else">
+                <div class="{!or(!v.isList,v.options.length==0)?'openedList hidden':'openedList'}">
+                    <aura:iteration items="{!v.options}" var="option">
+                        <div data-value = "{!option.value}" data-label = "{!option.label}" onclick="{!c.selectValue}">
+                            {!option.label}
+                        </div>
+                    </aura:iteration>
+                </div>
+            </aura:set>
+        </aura:if> 
+    </div>
+</aura:component>

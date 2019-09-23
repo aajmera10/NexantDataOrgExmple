@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Buying Relationship --></label>
+    <name>Buying_Relationship__c</name>
+    <picklistValues>
+        <masterLabel>Direct</masterLabel>
+        <translation><!-- Direct --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Indirect</masterLabel>
+        <translation><!-- Indirect --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Outside</masterLabel>
+        <translation><!-- Outside --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

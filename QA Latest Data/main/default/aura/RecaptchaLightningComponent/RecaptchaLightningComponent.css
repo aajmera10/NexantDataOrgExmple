@@ -1,0 +1,14 @@
+.THIS *{
+	box-sizing: border-box;
+}
+
+.THIS.captchaContainer{
+	margin-top: 0px;
+}
+
+.THIS.captchaContainer iframe{
+	border: 0;
+	height: 570px;
+	margin-left: -17px;
+	box-sizing: border-box;
+}

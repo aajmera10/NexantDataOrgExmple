@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Change_Request_Submitted_for_Approval</fullName>
+        <description>Change Request Submitted for Approval</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <recipients>
+            <recipient>ankur@tradeally.quality</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Change_request_template/Change_Request_For_Approval1</template>
+    </alerts>
+    <alerts>
+        <fullName>Change_Request_has_been_approved</fullName>
+        <description>Change Request has been approved.</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Change_request_template/Change_Request_Approved</template>
+    </alerts>
+    <alerts>
+        <fullName>Change_Request_has_been_rejected</fullName>
+        <description>Change Request has been rejected.</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Change_request_template/Change_Request_Rejected</template>
+    </alerts>
+    <alerts>
+        <fullName>Change_Request_recalled</fullName>
+        <description>Change Request recalled</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Change_request_template/Change_Request_Recalled</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Change_Request_Rejected1</fullName>
+        <field>Change_Request_Status__c</field>
+        <literalValue>Pending</literalValue>
+        <name>Change Request Rejected1</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Change_Request_is_Approved</fullName>
+        <description>Change Request is Approved</description>
+        <field>Change_Request_Status__c</field>
+        <literalValue>Approved</literalValue>
+        <name>Change Request is Approved</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Change_Request_is_In_Review_Stage</fullName>
+        <description>It shows that  change request is in review stage</description>
+        <field>Change_Request_Status__c</field>
+        <literalValue>In Review</literalValue>
+        <name>Change Request is In Review Stage</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Change_Request_is_Rejected</fullName>
+        <description>Change Request is Pending</description>
+        <field>Change_Request_Status__c</field>
+        <literalValue>Pending</literalValue>
+        <name>Change Request is Rejected</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_the_Checkbox</fullName>
+        <field>Change_Request_Approved__c</field>
+        <literalValue>1</literalValue>
+        <name>Update the Checkbox</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+</Workflow>

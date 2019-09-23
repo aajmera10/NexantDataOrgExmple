@@ -1,0 +1,21 @@
+Dear {!Change_Request__c.OwnerFullName},<br><br><br>
+
+We regret to inform you that your Change Request has been recalled. <br><br>
+
+Comment: {!ApprovalRequest.Comments}<br><br>
+
+Change Request Name : {!Change_Request__c.Name}<br>
+Change Request Submitted Date: {!Change_Request__c.CreatedDate}<br>
+Created by: {!Change_Request__c.CreatedBy}<br><br><br>
+
+You can contact us at, for any questions<br><br>
+
+Email:TradeProSupport@sce.com <br>
+Phone:(866) 635-6015<br>
+Mail: Southern California Edison, BCD DER COE,<br>
+         6070I Irwindale Ave<br>
+          Irwindale, CA 91702<br><br><br>
+
+
+ 
+SCE Trade Ally Vendor Network

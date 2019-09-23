@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Mailing_Country_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(NOT(ISBLANK(MailingCountry)),NOT(OR(MailingCountry = &quot;USA&quot;,MailingCountry = &quot;US&quot;,MailingCountry = &quot;United States&quot;,MailingCountry = &quot;United States of America&quot;)))</errorConditionFormula>
+    <errorDisplayField>MailingCountry</errorDisplayField>
+    <errorMessage>The Mailing Country Should be United States.</errorMessage>
+</ValidationRule>

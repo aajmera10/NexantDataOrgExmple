@@ -1,0 +1,20 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,force:lightningQuickAction,forceCommunity:availableForAllPageTypes,force:hasRecordId"
+                controller="ConvertReferralController"
+                access="global">
+
+    <ltng:require styles="{!$Resource.SLDS261 + '/styles/salesforce-lightning-design-system.min.css'}" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="convertationNotAvailable" type="Boolean" default="true"/>
+
+	<div>
+        <aura:if isTrue="{!v.convertationNotAvailable}">
+            <p>This referral can't be converted.</p>
+            <aura:set attribute="else">
+                <lightning:button label="Start Conversion" onclick="{!c.startConvertation}" />
+            </aura:set>
+        </aura:if>
+    </div>
+</aura:component>

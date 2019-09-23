@@ -1,0 +1,801 @@
+<aura:component controller="StartApplicationController"
+				implements="forceCommunity:availableForAllPageTypes,lightning:actionOverride,flexipage:availableForAllPageTypes,force:hasRecordId" 
+                access="global">
+                
+    <!--<ltng:require styles="{!$Resource.SLDS261 + '/styles/salesforce-lightning-design-system.min.css'}" />-->
+	<aura:attribute name="recordId" type="Id" />
+
+    <aura:attribute name="applicationId" type="String" access="global"/>
+    <aura:attribute name="tradeAllyId" type="String" access="global"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="allInfoWrapper" type="Object" />
+    <aura:attribute name="isApplicationSubmitted" type="Boolean" default="false" />
+    <aura:attribute name="activeTab" type="String" default="1" />
+    <aura:attribute name="isTab" type="Boolean" default="false" />
+    <aura:attribute name="Spinner" type="boolean" default="false"/>
+    <aura:attribute name="isSubscribed" type="Boolean" default="true"/>
+
+    <aura:attribute name="numberOfRowsToDisplay" type="Integer" access="global" default="10" />
+
+    <!--<aura:handler event="aura:waiting" action="{!c.showSpinner}" />
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}" />-->
+
+    <aura:attribute name="filesToUpload" type="Integer" />
+    
+	<!-- attribute to accept Visualforce page's javascript method -->
+    <aura:attribute name="sendData" type="object"/>
+
+    <aura:attribute name="isValidUser" type="Boolean" default="true"/>
+    <aura:attribute name="appNotExists" type="Boolean" default="true"/>
+
+	<!-- List of acceptable files for attachment/file upload, such as license, insurance, certfication, tax, and other doc -->
+	<aura:attribute name="acceptableFileTypes" type="List" default="['.doc', '.docx', '.pdf']" />
+	<aura:attribute name="acceptableFilePrompt" type="String" default="Please upload .doc, .docx, .pdf only." />
+	
+	<!-- List of file IDs for insurance file. When application is loaded, if there is any existing insurnce file associated with the current application, this should be populated, too -->
+	<aura:attribute name="insuranceFileIds" type="Id[]" />
+	<aura:attribute name="licenseFileIds" type="Id[]" />
+	<aura:attribute name="certificationFileIds" type="Id[]" />
+	<aura:attribute name="taxFileIds" type="Id[]" />
+	<aura:attribute name="otherFileIds" type="Id[]" />
+	<aura:attribute name="filesToDelete" type="Id[]" /> <!-- a collection of files that were uploaded previously but should be deleted after update -->
+
+    <!-- These variables store the number of saved objects. They will be used during the validation process to check if required cert/license/insurance/tax/other files are included in the application -->
+	<aura:attribute name="insuranceCount" type="Integer" default="0" />
+	<aura:attribute name="licenseCount" type="INteger" default="0" />
+	<aura:attribute name="certificationCount" type="Integer" default="0" />
+	<aura:attribute name="taxCount" type="Integer" default="0" />
+	<aura:attribute name="otherCount" type="Integer" default="0" />
+    <aura:attribute name="documentUploadErrorMessage" access="global" type="String" default="{numberOfRecords} {objectName} documents are required. Please click >New {ObjectName} and add the missing {ObjectName} document(s)." />
+	<aura:attribute name="otherDocumentUploadErrorMessage" access="global" type="String" default="{numberOfRecords} document(s) are required. Please click >New {ObjectName} and add the missing document(s)"  />    
+    
+    <aura:if isTrue="{!and(v.isValidUser,!v.appNotExists)}">
+	     <div class="startContainer" id="startContainer">
+            <aura:if isTrue="{!v.Spinner}">
+                <div aura:id="spinnerId" class="slds-spinner_container slds-grid">
+                    <div class="slds-align--absolute-center slds-p-top--large">
+                        <div class="slds-spinner--brand  slds-spinner slds-spinner--medium" role="alert">
+                           <span class="slds-assistive-text">Loading</span>
+                           <div class="slds-spinner__dot-a"></div>
+                           <div class="slds-spinner__dot-b"></div>
+                        </div>
+                    </div>
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!not(v.isApplicationSubmitted)}">         
+                <div class="slds-tabs_scoped">
+                    <ul class="slds-tabs_scoped__nav" role="tablist">
+                        <li class="slds-tabs_scoped__item slds-is-active" aura:id="tab-1" data-index="1" role="presentation"><a class="slds-tabs_scoped__link" href="javascript:void(0);" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-scoped-1" onclick="{!c.changeTab}" id="tab-scoped-1__item">{!$Label.c.Application_Tab_1_Company}</a></li>
+
+                         <li class="slds-tabs_scoped__item" aura:id="tab-2" data-index="2" role="presentation"><a class="slds-tabs_scoped__link" href="javascript:void(0);" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-scoped-2" onclick="{!c.changeTab}" id="tab-scoped-2__item">{!$Label.c.Application_Tab_2_Contact}</a></li>
+
+                        <aura:if isTrue="{!v.allInfoWrapper.tab3Visible}"><li class="slds-tabs_scoped__item" aura:id="tab-3" data-index="3" role="presentation"><a class="slds-tabs_scoped__link" href="javascript:void(0);" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-scoped-3" onclick="{!c.changeTab}" id="tab-scoped-3__item">{!$Label.c.Application_Tab_3_Program}</a></li></aura:if>
+
+                        <aura:if isTrue="{!v.allInfoWrapper.tab4Visible}"><li class="slds-tabs_scoped__item" aura:id="tab-4" data-index="4" role="presentation"><a class="slds-tabs_scoped__link" href="javascript:void(0);" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-scoped-4" onclick="{!c.changeTab}"  id="tab-scoped-4__item">{!$Label.c.Application_Tab_4_CustRef} <aura:if isTrue="{!v.allInfoWrapper.numberOfCR > 0}">{!'(Minimum '+v.allInfoWrapper.numberOfCR+')'}</aura:if></a></li></aura:if>
+
+                        <aura:if isTrue="{!v.allInfoWrapper.tab5Visible}"><li class="slds-tabs_scoped__item" aura:id="tab-5" data-index="5" role="presentation"><a class="slds-tabs_scoped__link" href="javascript:void(0);" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-scoped-5" onclick="{!c.changeTab}"  id="tab-scoped-5__item">{!$Label.c.Application_Tab_5_TradeRef} <aura:if isTrue="{!v.allInfoWrapper.numberOfTR > 0}">{!'(Minimum '+v.allInfoWrapper.numberOfTR+')'}</aura:if></a></li></aura:if>
+
+                        <aura:if isTrue="{!v.allInfoWrapper.tab6Visible}"><li class="slds-tabs_scoped__item" aura:id="tab-6" data-index="6" role="presentation"><a class="slds-tabs_scoped__link" href="javascript:void(0);" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-scoped-6" onclick="{!c.changeTab}"  id="tab-scoped-6__item">{!$Label.c.Application_Tab_6_Insurance} <aura:if isTrue="{!v.allInfoWrapper.numberOfInsurances > 0}">{!'(Minimum '+v.allInfoWrapper.numberOfInsurances+')'}</aura:if></a></li></aura:if>
+
+                        <aura:if isTrue="{!v.allInfoWrapper.tab7Visible}"><li class="slds-tabs_scoped__item" aura:id="tab-7" data-index="7" role="presentation"><a class="slds-tabs_scoped__link" href="javascript:void(0);" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-scoped-7" onclick="{!c.changeTab}"  id="tab-scoped-7__item">{!$Label.c.Application_Tab_7_License} <aura:if isTrue="{!v.allInfoWrapper.numberOfLicenses > 0}">{!'(Minimum '+v.allInfoWrapper.numberOfLicenses+')'}</aura:if></a></li></aura:if>
+
+                        <aura:if isTrue="{!v.allInfoWrapper.tab8Visible}"><li class="slds-tabs_scoped__item" aura:id="tab-8" data-index="8" role="presentation"><a class="slds-tabs_scoped__link" href="javascript:void(0);" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-scoped-8" onclick="{!c.changeTab}"  id="tab-scoped-8__item">{!$Label.c.Application_Tab_8_Certification} <aura:if isTrue="{!v.allInfoWrapper.numberOfCertifications > 0}">{!'(Minimum '+v.allInfoWrapper.numberOfCertifications+')'}</aura:if></a></li></aura:if>
+
+						<aura:if isTrue="{!v.allInfoWrapper.tab9Visible}"><li class="slds-tabs_scoped__item" aura:id="tab-9" data-index="9" role="presentation"><a class="slds-tabs_scoped__link" href="javascript:void(0);" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-scoped-9" onclick="{!c.changeTab}"  id="tab-scoped-9__item">{!$Label.c.Application_Tab_9_Tax} <aura:if isTrue="{!v.allInfoWrapper.numberOfTaxDocs > 0}">{!'(Minimum '+v.allInfoWrapper.numberOfTaxDocs+')'}</aura:if></a></li></aura:if>
+
+						<aura:if isTrue="{!v.allInfoWrapper.tab10Visible}"><li class="slds-tabs_scoped__item" aura:id="tab-10" data-index="10" role="presentation"><a class="slds-tabs_scoped__link" href="javascript:void(0);" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-scoped-10" onclick="{!c.changeTab}"  id="tab-scoped-10__item">{!$Label.c.Application_Tab_10_OtherDocs} <aura:if isTrue="{!v.allInfoWrapper.numberOfOtherDocs > 0}">{!'(Minimum '+v.allInfoWrapper.numberOfOtherDocs+')'}</aura:if></a></li></aura:if>
+
+						<aura:if isTrue="{!v.allInfoWrapper.tab11Visible}"><li class="slds-tabs_scoped__item" aura:id="tab-11" data-index="11" role="presentation"><a class="slds-tabs_scoped__link" href="javascript:void(0);" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-scoped-11" onclick="{!c.changeTab}"  id="tab-scoped-11__item">{!$Label.c.Application_Tab_11_Questions}</a></li></aura:if>
+
+                        <li class="slds-tabs_scoped__item" aura:id="tab-12" data-index="12" role="presentation"><a class="slds-tabs_scoped__link" href="javascript:void(0);" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-scoped-12" onclick="{!c.changeTab}"  id="tab-scoped-12__item">{!$Label.c.Application_Tab_12_Agreement}</a></li>
+                    </ul>
+
+                    <div id="tab-scoped-1" aura:id="tab-scoped-1" class="slds-tabs_scoped__content slds-show" role="tabpanel" aria-labelledby="tab-scoped-1__item">
+                        <div>
+							<aura:if isTrue="{!v.allInfoWrapper.editMode}">
+									<div class="slds-p-bottom_small">
+                                            {!$Label.c.Application_Company_Information}
+                                     </div>
+                            </aura:if>
+
+                            <aura:iteration items="{!v.allInfoWrapper.listOfTradeAllyFields}" var="trdeAllyField">
+                                <article class="slds-card">
+                                    <div class="slds-card__header slds-grid">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    {!trdeAllyField.label}:
+                                                </td>
+                                                <td>
+                                                    <c:FieldDisplay oneField="{!trdeAllyField}" editMode="{!v.allInfoWrapper.editMode}"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </article>
+                            </aura:iteration>
+                            <aura:if isTrue="{!v.allInfoWrapper.editMode}">
+                                <div class="slds-button-group" role="group">
+                                    <input type="button" class="slds-button slds-button_brand" onclick="{!c.saveAndContinue}" data-section="1" value="Save and Continue" />
+                                </div>
+                            </aura:if>
+                        </div>
+                    </div>
+                    <div id="tab-scoped-2" aura:id="tab-scoped-2" class="slds-tabs_scoped__content slds-hide" role="tabpanel" aria-labelledby="tab-scoped-2__item">
+                        <div>
+							<aura:if isTrue="{!v.allInfoWrapper.editMode}">
+									<div class="slds-p-bottom_small">
+                                            {!$Label.c.Application_Contact_Instructions}
+                                     </div>
+                            </aura:if>
+                            <aura:iteration items="{!v.allInfoWrapper.listOfContactFields}" var="primaryContactBACIField">
+                                <article class="slds-card">
+                                    <div class="slds-card__header slds-grid">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <aura:if isTrue="{!primaryContactBACIField.type != 'ATTACHMENT'}">
+                                                        {!primaryContactBACIField.label}:
+                                                        <!--<aura:set attribute="else">
+                                                            {!$Label.c.File_Upload_Label}:
+                                                        </aura:set> -->
+                                                    </aura:if>
+                                                </td>
+                                                <td>
+                                                    <aura:if isTrue="{!and(primaryContactBACIField.type == 'ATTACHMENT',v.allInfoWrapper.editMode)}">
+                                                        
+                                                        <aura:set attribute="else">
+                                                            <c:FieldDisplay oneField="{!primaryContactBACIField}" editMode="{!v.allInfoWrapper.editMode}"/>
+                                                        </aura:set>
+                                                    </aura:if>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </article>
+                            </aura:iteration>
+                            <aura:iteration items="{!v.allInfoWrapper.listOfTradeAllyBACIFields}" var="trdeAllyBACIField">
+                                <article class="slds-card">
+                                    <div class="slds-card__header slds-grid">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    {!trdeAllyBACIField.label}:
+                                                </td>
+                                                <td>
+                                                    <c:FieldDisplay oneField="{!trdeAllyBACIField}" editMode="{!v.allInfoWrapper.editMode}"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </article>
+                            </aura:iteration>
+
+                            <aura:if isTrue="{!v.allInfoWrapper.editMode}">
+                                <div class="slds-button-group" role="group">
+                                    <input type="button" class="slds-button slds-button_brand" onclick="{!c.saveAndContinue}" data-section="2" value="Save and Continue" />
+                                </div>
+                            </aura:if>
+                        </div>
+                    </div>
+                    <div id="tab-scoped-3" aura:id="tab-scoped-3" class="slds-tabs_scoped__content slds-hide" role="tabpanel" aria-labelledby="tab-scoped-3__item">
+                        <div>
+							<aura:if isTrue="{!v.allInfoWrapper.editMode}">
+									<div class="slds-p-bottom_small">
+                                            {!$Label.c.Application_Program_Participation_Instructions}
+                                     </div>
+                            </aura:if>
+                            <aura:iteration items="{!v.allInfoWrapper.listOfTradeAllyPPFields}" var="trdeAllyPPField">
+                                <article class="slds-card">
+                                    <div class="slds-card__header slds-grid">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    {!trdeAllyPPField.label}:
+                                                </td>
+                                                <td>
+                                                    <c:FieldDisplay oneField="{!trdeAllyPPField}" editMode="{!v.allInfoWrapper.editMode}"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </article>
+                            </aura:iteration>
+
+                            <aura:if isTrue="{!v.allInfoWrapper.editMode}">
+                                <div class="slds-button-group" role="group">
+                                    <input type="button" class="slds-button slds-button_brand" onclick="{!c.saveAndContinue}" data-section="3" value="Save and Continue" />
+                                </div>
+                            </aura:if>
+                        </div>
+                    </div>
+                    <div id="tab-scoped-4" aura:id="tab-scoped-4" class="slds-tabs_scoped__content slds-hide" role="tabpanel" aria-labelledby="tab-scoped-4__item">
+                        <div>
+                            <aura:if isTrue="{!v.allInfoWrapper.editMode}">
+								<div class="slds-p-bottom_small">
+                                     {!$Label.c.Application_Customer_Ref_Instructions}
+                                </div>
+                                <div class="addReference">
+                                    <a onclick="{!c.addNewReference}" data-section="4">+ Add reference</a>
+                                </div>
+                            </aura:if>
+
+                            <lightning:accordion activeSectionName="1">
+                                <aura:iteration items="{!v.allInfoWrapper.listOfTradeAllyReferencesFields}" var="trdeAllyReferenceFields" indexVar="position">
+                                    <lightning:accordionSection name="{!position}" 
+                                                                label="{!trdeAllyReferenceFields[0].recordName ? trdeAllyReferenceFields[0].recordName : 'New Reference'}"><!--label="{!'Reference ' +position}"-->
+                                        <aura:set attribute="actions">
+                                            <div>
+                                                <aura:if isTrue="{!v.allInfoWrapper.editMode}">
+                                                    <a data-position="{!position}" data-section="4" onclick="{!c.removeReference}">X</a>
+                                                </aura:if>
+                                            </div>
+                                        </aura:set>
+                                        <aura:set attribute="body">
+                                            <aura:iteration items="{!trdeAllyReferenceFields}" var="trdeAllyReferenceField">
+                                                <article class="slds-card">
+                                                    <div class="slds-card__header slds-grid">
+                                                        <table>
+                                                            <tr>
+                                                                <td>
+                                                                    {!trdeAllyReferenceField.label}:
+                                                                </td>
+                                                                <td>
+                                                                    <c:FieldDisplay oneField="{!trdeAllyReferenceField}" editMode="{!v.allInfoWrapper.editMode}"/>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </article>
+                                            </aura:iteration>
+                                        </aura:set>
+                                    </lightning:accordionSection>
+                                </aura:iteration>
+                            </lightning:accordion>
+
+                            <aura:if isTrue="{!v.allInfoWrapper.editMode}">
+                                <div class="slds-button-group" role="group">
+                                    <input type="button" class="slds-button slds-button_brand" onclick="{!c.saveAndContinue}" data-section="4" value="Save and Continue" />
+                                </div>
+                            </aura:if>
+                        </div>
+                    </div>
+                    <div id="tab-scoped-5" aura:id="tab-scoped-5" class="slds-tabs_scoped__content slds-hide" role="tabpanel" aria-labelledby="tab-scoped-5__item">
+                        <div>
+                            <aura:if isTrue="{!v.allInfoWrapper.editMode}">
+								<div class="slds-p-bottom_small">
+                                    {!$Label.c.Application_Trade_Ref_Instructions}
+                                </div>
+                                <div class="addReference">
+                                    <a onclick="{!c.addNewReference}" data-section="5">+ Add reference</a>
+                                </div>
+                            </aura:if>
+
+                            <lightning:accordion activeSectionName="1">
+                                <aura:iteration items="{!v.allInfoWrapper.listOfTradeAllyTradeReferencesFields}" var="trdeAllyTradeReferenceFields" indexVar="positionT">
+                                    <lightning:accordionSection name="{!positionT}" 
+                                                                label="{!trdeAllyTradeReferenceFields[0].recordName ? trdeAllyTradeReferenceFields[0].recordName : 'New Reference'}"><!--label="{!'Reference ' +positionT}"-->
+                                        <aura:set attribute="actions">
+                                            <div>
+                                                <aura:if isTrue="{!v.allInfoWrapper.editMode}">
+                                                    <a onclick="{!c.removeReference}" data-position="{!positionT}" data-section="5">X</a>
+                                                </aura:if>
+                                            </div>
+                                        </aura:set>
+                                        <aura:set attribute="body">
+                                            <aura:iteration items="{!trdeAllyTradeReferenceFields}" var="trdeAllyTradeReferenceField">
+                                                <article class="slds-card">
+                                                    <div class="slds-card__header slds-grid">
+                                                        <table>
+                                                            <tr>
+                                                                <td>
+                                                                    {!trdeAllyTradeReferenceField.label}:
+                                                                </td>
+                                                                <td>
+                                                                    <c:FieldDisplay oneField="{!trdeAllyTradeReferenceField}" editMode="{!v.allInfoWrapper.editMode}"/>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </article>
+                                            </aura:iteration>
+                                        </aura:set>
+                                    </lightning:accordionSection>
+                                </aura:iteration>
+                            </lightning:accordion>
+
+                            <aura:if isTrue="{!v.allInfoWrapper.editMode}">
+                                <div class="slds-button-group" role="group">
+                                    <input type="button" class="slds-button slds-button_brand" onclick="{!c.saveAndContinue}" data-section="5" value="Save and Continue" />
+                                </div>
+                            </aura:if>
+                        </div>
+                    </div>
+                    <div id="tab-scoped-6" aura:id="tab-scoped-6" class="slds-tabs_scoped__content slds-hide" role="tabpanel" aria-labelledby="tab-scoped-6__item">
+                        <div>
+                            <aura:if isTrue="{!v.allInfoWrapper.editMode}">
+                                <div class="addReference">
+									<div class="slds-p-bottom_small">
+                                            {!$Label.c.Application_Insurance_Instructions}
+                                     </div>
+                                    <a onclick="{!c.addNewReference}" data-section="6">+ Add Insurance</a>
+                                </div>
+                            </aura:if>
+							
+							<!-- phase 1 implementation: list of uploaded files-->
+							<lightning:layout multipleRows="true">
+								<aura:iteration items="{!v.insuranceFileIds}" var="eachId">
+									<lightning:layoutItem flexibility="auto, no-grow" padding="around-small">
+										<lightning:fileCard fileId="{!eachId}" />
+									</lightning:layoutItem>
+								</aura:iteration>
+							</lightning:layout>
+
+                            <lightning:accordion activeSectionName="1">
+                                <aura:iteration items="{!v.allInfoWrapper.listOfInsurancesFields}" var="insurancesFields" indexVar="positionI">
+                                    <lightning:accordionSection name="{!positionI}" 
+                                                                label="{!insurancesFields[0].recordName ? insurancesFields[0].recordName : 'New Insurance'}"><!--label="{!'Insurance ' +positionI}"-->
+                                        <aura:set attribute="actions">
+                                            <div>
+                                                <aura:if isTrue="{!v.allInfoWrapper.editMode}">
+													<!--lightning:buttonIcon iconName="utility:delete" onclick="{!c.removeReference}"></lightning:buttonIcon-->
+                                                    <a onclick="{!c.removeReference}" data-position="{!positionI}" data-section="6">X</a>
+                                                </aura:if>
+                                            </div>
+                                        </aura:set>
+                                        <aura:set attribute="body">
+                                            <aura:iteration items="{!insurancesFields}" var="insurancesField">
+                                                <article class="slds-card">
+                                                    <div class="slds-card__header slds-grid">
+                                                        <table>
+                                                            <tr>
+                                                                <td>
+                                                                    <aura:if isTrue="{!insurancesField.type != 'ATTACHMENT'}">
+                                                                        {!insurancesField.label}:
+                                                                        <aura:set attribute="else">
+                                                                            {!$Label.c.File_Upload_Label_Insurance}:
+                                                                        </aura:set>
+                                                                    </aura:if>
+                                                                </td>
+                                                                <td>
+                                                                    <aura:if isTrue="{!and(insurancesField.type == 'ATTACHMENT',v.allInfoWrapper.editMode)}">
+																		<lightning:fileUpload
+																			id="{!'insurance_upload_btn_' + positionI}"
+																			accept="{!v.acceptableFileTypes}" 
+																			disabled="false"
+																			label="{!v.acceptableFilePrompt}"
+																			multiple="false"
+																			name="insuranceFileUploader"
+																			onuploadfinished="{!c.handleInsuranceFileUpload}"
+																			recordId="{!v.allInfoWrapper.applicationId}">
+																		</lightning:fileUpload>
+                                                                        <aura:set attribute="else">
+                                                                            <c:FieldDisplay oneField="{!insurancesField}" editMode="{!v.allInfoWrapper.editMode}"/>
+                                                                        </aura:set>
+                                                                    </aura:if>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </article>
+                                            </aura:iteration>
+                                        </aura:set>
+                                    </lightning:accordionSection>
+                                </aura:iteration>
+                            </lightning:accordion>
+
+                            <aura:if isTrue="{!v.allInfoWrapper.editMode}">
+                                <div class="slds-button-group" role="group">
+                                    <input type="button" class="slds-button slds-button_brand" onclick="{!c.saveAndContinue}" data-section="6" value="Save and Continue" />
+                                </div>
+                            </aura:if>
+                        </div>
+                    </div>
+                    <div id="tab-scoped-7" aura:id="tab-scoped-7" class="slds-tabs_scoped__content slds-hide" role="tabpanel" aria-labelledby="tab-scoped-7__item">
+                        <div>
+                            <aura:if isTrue="{!v.allInfoWrapper.editMode}">
+								<div class="slds-p-bottom_small">
+                                    {!$Label.c.Application_License_Instructions}
+                                </div>		
+                                <div class="addReference">
+                                    <a onclick="{!c.addNewReference}" data-section="7">+ Add License</a>
+								</div>
+                            </aura:if>
+
+							<!-- Phase 2 implementation. Uncomment this chunck to enable it. Note that v.body might be a reserved key for component body.
+							
+							<aura:if isTrue="{!v.allInfoWrapper.editMode}">
+								<lightning:button label="+ Add License" onclick="{!c.addNewLicense}" />
+							</aura:if>
+							<div style="margin-top: 20px;">{!v.body}</div>
+							-->
+
+							<!-- Phase 1 implementation: show all uploaded files on load and on file upload -->
+							<lightning:layout multipleRows="true">
+								<aura:iteration items="{!v.licenseFileIds}" var="eachId">
+									<lightning:layoutItem flexibility="auto, no-grow" padding="around-small">
+										<lightning:fileCard fileId="{!eachId}" />
+									</lightning:layoutItem>
+								</aura:iteration>
+							</lightning:layout>
+
+                            <lightning:accordion activeSectionName="1">
+                                <aura:iteration items="{!v.allInfoWrapper.listOfLicensesFields}" var="licensesFields" indexVar="positionL">
+                                    <lightning:accordionSection name="{!positionL}" 
+                                                                label="{!licensesFields[0].recordName ? licensesFields[0].recordName : 'New License'}"><!--'License ' +positionL-->
+                                        <aura:set attribute="actions">
+                                            <div>
+                                                <aura:if isTrue="{!v.allInfoWrapper.editMode}">
+                                                    <a onclick="{!c.removeReference}" data-position="{!positionL}" data-section="7">X</a>
+                                                </aura:if>
+                                            </div>
+                                        </aura:set>
+                                        <aura:set attribute="body">
+                                            <aura:iteration items="{!licensesFields}" var="licensesField">
+                                                <article class="slds-card">
+                                                    <div class="slds-card__header slds-grid">
+                                                        <table>
+                                                            <tr>
+                                                                <td>
+                                                                    <aura:if isTrue="{!licensesField.type != 'ATTACHMENT'}">
+                                                                        {!licensesField.label}:
+                                                                        <aura:set attribute="else">
+                                                                            {!$Label.c.File_Upload_Label_License}:
+                                                                        </aura:set>
+                                                                    </aura:if>
+                                                                </td>
+                                                                <td>
+                                                                    <aura:if isTrue="{!and(licensesField.type == 'ATTACHMENT',v.allInfoWrapper.editMode)}">
+																		<lightning:fileUpload
+																			id="{!'license_upload_btn_' + positionL}" 
+																			accept="{!v.acceptableFileTypes}" 
+																			disabled="false"
+																			label="{!v.acceptableFilePrompt}"
+																			multiple="false"
+																			name="licenseFileUploader"
+																			onuploadfinished="{!c.handleLicenseFileUpload}"
+																			recordId="{!v.allInfoWrapper.applicationId}">
+																		</lightning:fileUpload>
+                                                                        <aura:set attribute="else">
+                                                                            <c:FieldDisplay oneField="{!licensesField}" editMode="{!v.allInfoWrapper.editMode}"/>
+                                                                        </aura:set>
+                                                                    </aura:if>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </article>
+                                            </aura:iteration>
+                                        </aura:set>
+                                    </lightning:accordionSection>
+                                </aura:iteration>
+                            </lightning:accordion>
+
+                            <aura:if isTrue="{!v.allInfoWrapper.editMode}">
+                                <div class="slds-button-group" role="group">
+                                    <input type="button" class="slds-button slds-button_brand" onclick="{!c.saveAndContinue}" data-section="7" value="Save and Continue" />
+                                </div>
+                            </aura:if>
+                        </div>
+                    </div>
+                    <div id="tab-scoped-8" aura:id="tab-scoped-8" class="slds-tabs_scoped__content slds-hide" role="tabpanel" aria-labelledby="tab-scoped-8__item">
+                        <div>
+                            <aura:if isTrue="{!v.allInfoWrapper.editMode}">
+									<div class="slds-p-bottom_small">
+                                            {!$Label.c.Application_Certification_Instructions}
+                                     </div>
+                                <div class="addReference">
+                                    <a onclick="{!c.addNewReference}" data-section="8">+ Add Certification</a>
+                                </div>
+                            </aura:if>
+
+							<!-- Phase 1 implemntation -->
+
+							<lightning:layout multipleRows="true">
+								<aura:iteration items="{!v.certificationFileIds}" var="eachId">
+									<lightning:layoutItem flexibility="auto, no-grow" padding="around-small">
+										<lightning:fileCard fileId="{!eachId}" />
+									</lightning:layoutItem>
+								</aura:iteration>
+							</lightning:layout>
+
+                            <lightning:accordion activeSectionName="1">
+                                <aura:iteration items="{!v.allInfoWrapper.listOfCertificationsFields}" var="certificationsFields" indexVar="positionC">
+                                    <lightning:accordionSection name="{!positionC}" 
+                                                                label="{!certificationsFields[0].recordName ? certificationsFields[0].recordName : 'New Certification'}"><!--label="{!'Certification ' +positionC}"-->
+                                        <aura:set attribute="actions">
+                                            <div>
+                                                <aura:if isTrue="{!v.allInfoWrapper.editMode}">
+                                                    <a onclick="{!c.removeReference}" data-position="{!positionC}" data-section="8">X</a>
+                                                </aura:if>
+                                            </div>
+                                        </aura:set>
+                                        <aura:set attribute="body">
+                                            <aura:iteration items="{!certificationsFields}" var="certificationsField">
+                                                 <article class="slds-card">
+                                                    <div class="slds-card__header slds-grid">
+                                                        <table>
+                                                            <tr>
+                                                                <td>
+                                                                    <aura:if isTrue="{!certificationsField.type != 'ATTACHMENT'}">
+                                                                        {!certificationsField.label}:
+                                                                        <aura:set attribute="else">
+                                                                            {!$Label.c.File_Upload_Label_Certification}:
+                                                                        </aura:set>
+                                                                    </aura:if>
+                                                                </td>
+                                                                <td>
+                                                                    <aura:if isTrue="{!and(certificationsField.type == 'ATTACHMENT',v.allInfoWrapper.editMode)}">
+                                                                        <lightning:fileUpload
+																			id="{!'certification_upload_btn_' + positionC}"
+																			accept="{!v.acceptableFileTypes}" 
+																			disabled="false"
+																			label="{!v.acceptableFilePrompt}"
+																			multiple="false"
+																			name="certificationFileUploader"
+																			onuploadfinished="{!c.handleCertificationFileUpload}"
+																			recordId="{!v.allInfoWrapper.applicationId}">
+																		</lightning:fileUpload>
+                                                                        <aura:set attribute="else">
+                                                                            <c:FieldDisplay oneField="{!certificationsField}" editMode="{!v.allInfoWrapper.editMode}"/>
+                                                                        </aura:set>
+                                                                    </aura:if>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </article>
+                                            </aura:iteration>
+                                        </aura:set>
+                                    </lightning:accordionSection>
+                                </aura:iteration>
+                            </lightning:accordion>
+
+                            <aura:if isTrue="{!v.allInfoWrapper.editMode}">
+                                <div class="slds-button-group" role="group">
+                                    <input type="button" class="slds-button slds-button_brand" onclick="{!c.saveAndContinue}" data-section="8" value="Save and Continue" />
+                                </div>
+                            </aura:if>
+                        </div>
+                    </div>
+                    <div id="tab-scoped-9" aura:id="tab-scoped-9" class="slds-tabs_scoped__content slds-hide" role="tabpanel" aria-labelledby="tab-scoped-9__item">
+                        <div>
+                            <aura:if isTrue="{!v.allInfoWrapper.editMode}">
+									<div class="slds-p-bottom_small">
+                                            {!$Label.c.Application_Tax_Instructions}
+                                     </div>
+                                <div class="addReference">
+                                    <a onclick="{!c.addNewReference}" data-section="9">+ Add Tax</a>
+                                </div>
+                            </aura:if>
+
+							<!-- Phase 1 implementation -->
+							<lightning:layout multipleRows="true">
+								<aura:iteration items="{!v.taxFileIds}" var="eachId">
+									<lightning:layoutItem flexibility="auto, no-grow" padding="around-small">
+										<lightning:fileCard fileId="{!eachId}" />
+									</lightning:layoutItem>
+								</aura:iteration>
+							</lightning:layout>
+
+                            <lightning:accordion activeSectionName="1">
+                                <aura:iteration items="{!v.allInfoWrapper.listOfTaxFields}" var="taxFields" indexVar="positionTax">
+                                    <lightning:accordionSection name="{!positionTax}" 
+                                                                label="{!taxFields[0].recordName ? taxFields[0].recordName : 'New Tax'}"><!--'License ' +positionL-->
+                                        <aura:set attribute="actions">
+                                            <div>
+                                                <aura:if isTrue="{!v.allInfoWrapper.editMode}">
+                                                    <a onclick="{!c.removeReference}" data-position="{!positionTax}" data-section="9">X</a>
+                                                </aura:if>
+                                            </div>
+                                        </aura:set>
+                                        <aura:set attribute="body">
+                                            <aura:iteration items="{!taxFields}" var="taxField">
+                                                <article class="slds-card">
+                                                    <div class="slds-card__header slds-grid">
+                                                        <table>
+                                                            <tr>
+                                                                <td>
+                                                                    <aura:if isTrue="{!taxField.type != 'ATTACHMENT'}">
+                                                                        {!taxField.label}:
+                                                                        <aura:set attribute="else">
+                                                                            {!$Label.c.File_Upload_Label_Tax}:
+                                                                        </aura:set>
+                                                                    </aura:if>
+                                                                </td>
+                                                                <td>
+                                                                    <aura:if isTrue="{!and(taxField.type == 'ATTACHMENT',v.allInfoWrapper.editMode)}">
+                                                                        <lightning:fileUpload
+																			id="{!'tax_upload_btn_' + positionTax}"
+																			accept="{!v.acceptableFileTypes}" 
+																			disabled="false"
+																			label="{!v.acceptableFilePrompt}"
+																			multiple="false"
+																			name="taxFileUploader"
+																			onuploadfinished="{!c.handleTaxFileUpload}"
+																			recordId="{!v.allInfoWrapper.applicationId}">
+																		</lightning:fileUpload>
+                                                                        <aura:set attribute="else">
+                                                                            <c:FieldDisplay oneField="{!taxField}" editMode="{!v.allInfoWrapper.editMode}"/>
+                                                                        </aura:set>
+                                                                    </aura:if>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </article>
+                                            </aura:iteration>
+                                        </aura:set>
+                                    </lightning:accordionSection>
+                                </aura:iteration>
+                            </lightning:accordion>
+
+                            <aura:if isTrue="{!v.allInfoWrapper.editMode}">
+                                <div class="slds-button-group" role="group">
+                                    <input type="button" class="slds-button slds-button_brand" onclick="{!c.saveAndContinue}" data-section="9" value="Save and Continue" />
+                                </div>
+                            </aura:if>
+                        </div>
+                    </div>
+
+					<div id="tab-scoped-10" aura:id="tab-scoped-10" class="slds-tabs_scoped__content slds-hide" role="tabpanel" aria-labelledby="tab-scoped-10__item">
+                        <div>
+                            <aura:if isTrue="{!v.allInfoWrapper.editMode}">
+									<div class="slds-p-bottom_small">
+                                            {!$Label.c.Application_Other_Document_Instructions}
+                                     </div>
+                                <div class="addReference">
+                                    <a onclick="{!c.addNewReference}" data-section="10">+ Add Other Document</a>
+                                </div>
+                            </aura:if>
+							
+							<!-- Phase 1 implementation -->
+							<lightning:layout multipleRows="true">
+								<aura:iteration items="{!v.otherFileIds}" var="eachId">
+									<lightning:layoutItem flexibility="auto, no-grow" padding="around-small">
+										<lightning:fileCard fileId="{!eachId}" />
+									</lightning:layoutItem>
+								</aura:iteration>
+							</lightning:layout>
+
+                            <lightning:accordion activeSectionName="1">
+                                <aura:iteration items="{!v.allInfoWrapper.listOfOtherFields}" var="otherFields" indexVar="positionOther">
+                                    <lightning:accordionSection name="{!positionOther}" 
+                                                                label="{!otherFields[0].recordName ? otherFields[0].recordName : 'New Other Document'}"><!--'License ' +positionL-->
+                                        <aura:set attribute="actions">
+                                            <div>
+                                                <aura:if isTrue="{!v.allInfoWrapper.editMode}">
+                                                    <a onclick="{!c.removeReference}" data-position="{!positionOther}" data-section="10">X</a>
+                                                </aura:if>
+                                            </div>
+                                        </aura:set>
+                                        <aura:set attribute="body">
+                                            <aura:iteration items="{!otherFields}" var="otherField">
+                                                <article class="slds-card">
+                                                    <div class="slds-card__header slds-grid">
+                                                        <table>
+                                                            <tr>
+                                                                <td>
+                                                                    <aura:if isTrue="{!otherField.type != 'ATTACHMENT'}">
+                                                                        {!otherField.label}:
+                                                                        <aura:set attribute="else">
+                                                                            {!$Label.c.File_Upload_Label_Other_Docs}:
+                                                                        </aura:set>
+                                                                    </aura:if>
+                                                                </td>
+                                                                <td>
+                                                                    <aura:if isTrue="{!and(otherField.type == 'ATTACHMENT',v.allInfoWrapper.editMode)}">
+                                                                        <lightning:fileUpload
+																			id="{!'other_upload_btn_' + positionOther}"
+																			accept="{!v.acceptableFileTypes}" 
+																			disabled="false"
+																			label="{!v.acceptableFilePrompt}"
+																			multiple="false"
+																			name="otherFileUploader"
+																			onuploadfinished="{!c.handleOtherFileUpload}"
+																			recordId="{!v.allInfoWrapper.applicationId}">
+																		</lightning:fileUpload>
+                                                                        <aura:set attribute="else">
+                                                                            <c:FieldDisplay oneField="{!otherField}" editMode="{!v.allInfoWrapper.editMode}"/>
+                                                                        </aura:set>
+                                                                    </aura:if>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </article>
+                                            </aura:iteration>
+                                        </aura:set>
+                                    </lightning:accordionSection>
+                                </aura:iteration>
+                            </lightning:accordion>
+
+                            <aura:if isTrue="{!v.allInfoWrapper.editMode}">
+                                <div class="slds-button-group" role="group">
+                                    <input type="button" class="slds-button slds-button_brand" onclick="{!c.saveAndContinue}" data-section="10" value="Save and Continue" />
+                                </div>
+                            </aura:if>
+                        </div>
+                    </div>
+                    <div id="tab-scoped-11" aura:id="tab-scoped-11" class="slds-tabs_scoped__content slds-hide" role="tabpanel" aria-labelledby="tab-scoped-11__item">
+                        <div>
+							<aura:if isTrue="{!v.allInfoWrapper.editMode}">
+									<div class="slds-p-bottom_small">
+                                            {!$Label.c.Application_Demographic_Instructions}
+                                     </div>
+                            </aura:if>
+
+                            <aura:iteration items="{!v.allInfoWrapper.listOfTradeAllyDemographicFields}" var="demographicField">
+                                <article class="slds-card">
+                                    <div class="slds-card__header slds-grid">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    {!demographicField.label}:
+                                                </td>
+                                                <td>
+                                                    <c:FieldDisplay oneField="{!demographicField}" editMode="{!v.allInfoWrapper.editMode}"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </article>
+                            </aura:iteration>
+                            <aura:if isTrue="{!v.allInfoWrapper.editMode}">
+                                <div class="slds-button-group" role="group">
+                                    <input type="button" class="slds-button slds-button_brand" onclick="{!c.saveAndContinue}" data-section="11" value="Save and Continue" />
+                                </div>
+                            </aura:if>
+                        </div>
+                    </div>
+
+                    <div id="tab-scoped-12" aura:id="tab-scoped-12" class="slds-tabs_scoped__content slds-hide" role="tabpanel" aria-labelledby="tab-scoped-12__item">
+                        <div>
+							<aura:if isTrue="{!v.allInfoWrapper.editMode}">
+									<div class="slds-p-bottom_small">
+                                            {!$Label.c.Application_Final_Agreement_Instructions}
+                                     </div>
+                            </aura:if>
+                            <aura:iteration items="{!v.allInfoWrapper.listOfApplicationFields}" var="appField">
+                                <article class="slds-card">
+                                    <div class="slds-card__header slds-grid">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    {!appField.label}
+                                                </td>
+                                                <td>
+                                                    <c:FieldDisplay oneField="{!appField}" editMode="{!v.allInfoWrapper.editMode}" numberOfRowsToDisplay="{!v.numberOfRowsToDisplay}"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </article>
+                            </aura:iteration>
+
+                            <aura:if isTrue="{!v.allInfoWrapper.editMode}">
+                                <div class="slds-button-group" role="group">
+                                    <input type="button" class="slds-button slds-button_brand" onclick="{!c.saveAndContinue}" data-section="12" value="Submit Form" />
+                                </div>
+                            </aura:if>
+                        </div>
+                    </div>
+                </div>
+            
+                <aura:set attribute="else">
+                    <div class="reviewApp">
+                        <c:ApplicationInReviewLightningComponent />
+                    </div>
+                </aura:set>
+            </aura:if>
+        </div>
+        <lightning:button label="Print" onclick="{!c.testPrint}" />
+
+    </aura:if>
+
+    <aura:if isTrue="{!!v.isValidUser}">
+        <center>
+            {!$Label.c.Not_Available_Logic}
+        </center>
+    </aura:if>
+</aura:component>

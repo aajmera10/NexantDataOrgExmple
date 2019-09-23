@@ -1,0 +1,6 @@
+<aura:event type="APPLICATION" access="global">
+
+	<!--Attributes-->
+	<aura:attribute name="wasGoogleRecaptchaPassed" type="Boolean" default="false" access="global"/>
+
+</aura:event>

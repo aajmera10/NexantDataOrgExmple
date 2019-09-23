@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sector__c</fullName>
+    <description>Deprecated in favor of field Sectors__c, as sectors will be a multi value text from DSMC.</description>
+    <externalId>false</externalId>
+    <label>Sector</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Sector</valueSetName>
+    </valueSet>
+</CustomField>

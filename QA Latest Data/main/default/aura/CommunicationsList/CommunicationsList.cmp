@@ -1,0 +1,145 @@
+<aura:component>
+    <aura:attribute name="allRecords" type="Object[]"/>
+    <aura:attribute name="recordsToDisplay" type="Object[]"/>
+    <aura:attribute name="numberOfRecords" type="Integer" default = "10"/>
+    <aura:attribute name="currentStartIndex" type="Integer" default = "0"/>
+    <aura:attribute name="currentPageNumber" type="Integer"/>
+    <aura:attribute name="lastPageNumber" type="Integer"/>
+    <aura:attribute name="sortField" type="String"/>
+    <aura:attribute name="isSortOrderASC" type="Boolean" default = "true"/>
+    <aura:attribute name="header" type="List" default = "['Date','Contacted by','Office','Communicated with','Topic','Subject','Communication History']"/>
+    <aura:attribute name="sort" type="String" default = ""/>
+
+    <aura:handler name="change" value="{!v.allRecords}" action="{!c.startPagination}"/>
+    <div class="listWrapper">
+        <div class="paginationBlock">
+            <div class="filterSelect">
+                <span>Sort:</span>
+                <div class="selectBlock">
+                    <span data-value="ActivityDate" class="{!v.sort=='ActivityDate'?'bold':''}" onclick="{!c.sortRecordsList}">
+                        Date |
+                    </span>
+                    <span data-value="Who" class="{!v.sort=='Who'?'bold':''}" onclick="{!c.sortRecordsList}">
+                        Contacted By |
+                    </span>
+                    <span data-value="What" class="{!v.sort=='What'?'bold':''}" onclick="{!c.sortRecordsList}">
+                        Office |
+                    </span>    
+                    <span data-value="Type" class="{!v.sort=='Type'?'bold':''}" onclick="{!c.sortRecordsList}">
+                        Topic |
+                    </span>    
+                    <span data-value="Subject" class="{!v.sort=='Subject'?'bold':''}" onclick="{!c.sortRecordsList}">
+                        Subject
+                    </span>
+                </div>
+            </div>
+            <div class="paginationTable">
+                <table>
+                    <tr>
+                        <td>
+                            <ui:outputURL disabled="{!v.currentPageNumber == 1}" label="&lt;&lt;" click="{!c.startPagination}" value=""/>
+                            <ui:outputURL disabled="{!v.currentPageNumber == 1}" label="&lt;" click="{!c.showPreviousRecords}" value=""/>
+                        </td>
+                        <td>
+                            Page <ui:outputNumber value="{!v.currentPageNumber}" /> of <ui:outputNumber value="{!v.lastPageNumber}"/>
+                        </td>
+                        <td>
+                            <ui:outputURL disabled="{!v.currentPageNumber == v.lastPageNumber}" label="&gt;" click="{!c.showNextRecords}" value=""/>
+                            <ui:outputURL disabled="{!v.currentPageNumber == v.lastPageNumber}" label="&gt;&gt;" click="{!c.showLastRecords}" value=""/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="tableBlock">
+            <table class="slds-table slds-table_bordered slds-table_resizable-cols slds-table_fixed-layout">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <aura:iteration items="{!v.header}" var="headerList">
+                            <th class="slds-is-resizable slds-text-title_caps">
+                                <span class="slds-truncate" title="{!headerList}">
+                                    {!headerList}
+                                </span>
+                            </th>
+                        </aura:iteration>
+                    </tr>
+                </thead>
+                <tbody>
+                    <aura:iteration items = "{!v.recordsToDisplay}" var = "communicationItem">
+                        <tr class="slds-hint-parent">
+                            <c:CommunicationHistoryItem communication = "{!communicationItem}"/>
+                        </tr>
+                    </aura:iteration>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!--<div>
+        Sort:
+        <span data-value="ActivityDate" onclick="{!c.sortRecordsList}">
+            Date: |
+        </span>
+        <span data-value="Who" onclick="{!c.sortRecordsList}">
+            Contacted By: |
+        </span>
+        <span data-value="What" onclick="{!c.sortRecordsList}">
+            Office: |
+        </span>    
+        <span data-value="Type" onclick="{!c.sortRecordsList}">
+            Topic: |
+        </span>    
+        <span data-value="Subject" onclick="{!c.sortRecordsList}">
+            Subject:
+        </span>
+
+        <span onclick="{!c.startPagination}">
+            To The First Page
+        </span>
+        <span onclick="{!c.showPreviousRecords}">
+            Previous
+        </span>
+        <span>
+            Page {!v.currentPageNumber} of {!v.lastPageNumber}
+        </span>
+        <span onclick="{!c.showNextRecords}">
+            Next
+        </span>
+        <span onclick="{!c.showLastRecords}">
+            To The Last Page
+        </span>
+    </div>-->
+    <!--<div>
+        Communication History
+    </div>
+
+    <span>
+        Date
+    </span>
+    <span>
+        Contacted by
+    </span>
+    <span>
+        Office
+    </span>
+    <span>
+        Communicated with
+    </span>
+    <span>
+        Topic
+    </span>
+    <span>
+        Subject
+    </span>
+    <span>
+        Communication History
+    </span>
+    
+    <aura:iteration items = "{!v.recordsToDisplay}" var = "communicationItem">
+        <div style="border: 1px solid red;">
+        <c:CommunicationHistoryItem communication = "{!communicationItem}"/>
+        </div>
+    </aura:iteration>-->
+    
+	
+</aura:component>

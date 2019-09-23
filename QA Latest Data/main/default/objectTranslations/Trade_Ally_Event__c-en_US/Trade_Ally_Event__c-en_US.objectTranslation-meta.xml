@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Trade Ally Event</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Trade Ally Events</value>
+    </caseValues>
+    <layouts>
+        <layout>Trade Ally Event Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- A date should be in the future --></errorMessage>
+        <name>An_entered_date_is_in_the_future</name>
+    </validationRules>
+</CustomObjectTranslation>

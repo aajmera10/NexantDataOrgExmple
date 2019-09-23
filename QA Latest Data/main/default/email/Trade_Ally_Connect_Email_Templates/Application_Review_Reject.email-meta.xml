@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email sent when trade ally application is NOT approved.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Nexant_Letter_Head</letterhead>
+    <name>Application Review - Reject</name>
+    <style>freeForm</style>
+    <subject>Application Request has been Rejected.</subject>
+    <textOnly>Hello {!Approval_Requesting_User.Name}.
+
+We regret to inform you that your Nexant Trade Ally Application has not been accepted.
+
+Approver&#39;s Comment: {!ApprovalRequest.Comments}
+
+Application Name: {!Application__c.Name}
+
+Date Created: {!Application__c.CreatedDate}
+
+Created By: {!Application__c.CreatedBy}
+
+
+You can contact us at {!Application__c.OwnerEmail} if you have any questions.
+
+Nexant Trade Ally Network</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

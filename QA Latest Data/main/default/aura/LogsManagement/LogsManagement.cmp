@@ -1,0 +1,114 @@
+<aura:component controller="LogsManagementController" 
+                implements="forceCommunity:availableForAllPageTypes,lightning:actionOverride" 
+                access="global">
+
+    <ltng:require styles="{!$Resource.SLDS261 + '/styles/salesforce-lightning-design-system.min.css'}" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+	
+    <!--<aura:attribute name="defaultAccountId" type="String" />-->
+    <aura:attribute name="accountSearchText" type="String" />
+    <!--<aura:attribute name="listOfTradeAllies" type="List" />-->
+    <aura:attribute name="tradeAlliesData" type="Object" />
+    <!--<aura:attribute name="wrappedLogInfo" type="Object" />-->
+    <!--<aura:attribute name="selectedTradeAllyName" type="String" />-->
+    <!--<aura:attribute name="isTradeAlliesView" type="Boolean" default="true" />-->
+
+    <aura:attribute name="sortField" type="String" default="Name"/>
+    <aura:attribute name="sortOrder" type="String" default="ASC"/>
+    
+    <div class="logsContainer">
+        <!--<aura:if isTrue="{!v.isTradeAlliesView == true}">-->
+        <div class="isAlliesTrue">
+            <div class="searchArea">
+                <div class="inputBlock">
+                    <ui:inputText value="{!v.accountSearchText}" />
+                </div>
+                <div class="slds-button-group buttonBlock" role="group">
+                    <input type="button" class="slds-button slds-button_brand" value="Search" onclick="{!c.findAccounts}" />
+                </div>
+            </div>
+            <table class="slds-table slds-table_bordered slds-table_resizable-cols slds-table_fixed-layout">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <aura:iteration items="{!v.tradeAlliesData.listOfFieldsInfo}" var="tradeAllyInfo" indexVar="taLabelPosition">
+                            <th class="slds-is-sortable slds-is-resizable slds-text-title_caps">
+                                <a class="toggle slds-th__action slds-text-link_reset" onclick="{!c.changeSorting}" data-fname="{!tradeAllyInfo.name}">
+                                    <span class="slds-truncate" title="{!tradeAllyInfo.label}" data-fname="{!tradeAllyInfo.name}">
+                                        {!tradeAllyInfo.label}
+                                    </span>
+                                    <div class="slds-icon_container" data-fname="{!tradeAllyInfo.name}">
+                                        <aura:if isTrue="{!and(tradeAllyInfo.name == v.sortField,v.sortOrder == 'ASC')}">
+                                            <span data-fname="{!tradeAllyInfo.name}" class="upIcon">&#129137;</span>
+                                        </aura:if>
+                                        <aura:if isTrue="{!and(tradeAllyInfo.name == v.sortField,v.sortOrder == 'DESC')}">
+                                            <span data-fname="{!tradeAllyInfo.name}" class="downIcon">&#129139;</span>
+                                        </aura:if>
+                                    </div>
+                                </a>
+                            </th>
+                        </aura:iteration>
+                    </tr>
+                </thead>
+                <tbody>
+                    <aura:iteration items="{!v.tradeAlliesData.listOfWrappedRecords}" var="tradeAllyFields" indexVar="taPosition">
+                        <tr class="slds-hint-parent">
+                            <aura:iteration items="{!tradeAllyFields}" var="tradeAllyField" indexVar="fieldPosition">
+                                <td class="slds-cell-edit">
+                                    <c:FieldDisplay oneField="{!tradeAllyField}" editMode="false" addLinks="true"/>
+                                </td>
+                            </aura:iteration>
+                        </tr>
+                    </aura:iteration>
+                </tbody>
+            </table>
+        </div>
+            <!--<aura:set attribute="else">
+                <div class="isAlliesFalse">
+                    <p class="title">{!v.selectedTradeAllyName}</p>
+                    <div>
+                        <aura:iteration items="{!v.wrappedLogInfo.listOfTaskFields}" var="taskField">
+                            <article class="slds-card">
+                                <div class="slds-card__header slds-grid">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                {!taskField.label}:
+                                            </td>
+                                            <td>
+                                                <c:FieldDisplay oneField="{!taskField}" editMode="true" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </article>
+                        </aura:iteration>
+                        <article class="slds-card">
+                                <div class="slds-card__header slds-grid">
+                                    <table>
+                                    <tr>
+                                        <td>Assignment</td>
+                                        <td>
+                                            <aura:iteration items="{!v.wrappedLogInfo.wrappedContacts}" var="wrappedContact">
+                                                <div class="checkboxes">
+                                                    <ui:inputCheckbox value="{!wrappedContact.selected}"/>
+                                                    <span>{!wrappedContact.tradeAllyUser.Name}</span>
+                                                </div>
+                                            </aura:iteration>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="slds-button-group" role="group">
+                        <aura:if isTrue="{!not(v.defaultAccountId)}">
+                            <input type="button" class="slds-button slds-button_neutral" value="Cancel" onclick="{!c.cancelSelection}" />
+                        </aura:if>
+                        <input type="button" class="slds-button slds-button_brand" value="Save" onclick="{!c.saveNewLog}" />
+                    </div>
+                </div>
+            </aura:set>
+        </aura:if>-->
+    </div>
+</aura:component>

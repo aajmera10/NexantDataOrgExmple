@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>isApplicationRecalled__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This is used to capture the status when application is recalled by approval process</description>
+    <externalId>false</externalId>
+    <label>isApplicationRecalled</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

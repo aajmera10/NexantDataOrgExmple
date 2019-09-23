@@ -1,0 +1,41 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><span style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; background-color: rgb(255, 255, 255);"><br></span></div><div style=""><span style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; background-color: rgb(255, 255, 255);">Hello&nbsp;</span><span style="font-family: Arial, sans-serif; background-color: rgb(255, 255, 255);">&nbsp;<b>{!Application__c.OwnerFullName}</b>,</span></div><span style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; background-color: rgb(255, 255, 255);"><div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><span style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; background-color: rgb(255, 255, 255);"><br></span></div></span><p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal"><span style="font-size: 12pt; font-family: Arial, sans-serif; background: white;">Congratulations&nbsp;!&nbsp; Your Nexant Trade Ally
+Application has been approved.<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal"><span style="font-size: 12pt; font-family: Arial, sans-serif; background: white;"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal"><span style="font-size: 12pt; font-family: Arial, sans-serif; background: white;"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal"><span style="font-size: 12pt; font-family: Arial, sans-serif; background: white;">Approver's Comment: <i>{!ApprovalRequest.Comments}</i><o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal"><span style="font-size: 12pt; font-family: Arial, sans-serif; background: white;"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal"><span style="font-size: 12pt; font-family: Arial, sans-serif; background: white;">Application Name:&nbsp;{!Application__c.Name}<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal"><span style="font-size: 12pt; font-family: Arial, sans-serif; background: white;"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal"><span style="font-size: 12pt; font-family: Arial, sans-serif; background: white;">Created Date:&nbsp;{!Application__c.CreatedDate}<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal"><span style="font-size: 12pt; font-family: Arial, sans-serif; background: white;"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal"><span style="font-size: 12pt; font-family: Arial, sans-serif; background: white;">Created by:&nbsp;{!Application__c.CreatedBy}<o:p></o:p></span></p>
+
+<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal"><span style="font-size: 12pt; font-family: Arial, sans-serif; background: white;"><o:p>&nbsp;</o:p></span></p>
+
+<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal"><span style="font-size: 12pt; font-family: Arial, sans-serif; background: white;">Welcome to Nexant Community.<o:p></o:p></span></p><div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><span style="background-color: rgb(255, 255, 255);"><br></span></div><div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><span style="background-color: rgb(255, 255, 255);"><br></span></div><div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><a href="http://tradeally-qa-edition.force.com/tradeally/s/login">Login to Community</a></div>]]></td>
+</tr>
+</table>

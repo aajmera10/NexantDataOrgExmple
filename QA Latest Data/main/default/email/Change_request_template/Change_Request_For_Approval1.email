@@ -1,0 +1,118 @@
+Hello {!User.Name},<br> <br>  
+A New Change Request Record has been submitted for Approval. Please check the details below and Approve/ reject the request. <br> <br>
+ <table cellpadding="3" cellspacing="2" style="border: thin solid #FFFFFF; font-size: 16px; font-family: 
+
+'trebuchet MS';">
+      <tr>
+          <td style="background-color: #b9c9fe; color: #039; font-weight: bold;">
+              Field</td>
+          <td style="background-color: #b9c9fe; color: #039; font-weight: bold;">
+              New Value</td>
+              <td style="background-color: #b9c9fe; color: #039; font-weight: bold;">
+              Previous Value</td>
+      </tr>
+      <tr>
+          <td style="background-color: #e8edff; color: #669;">
+              Account Name:
+          </td>
+          <td style="background-color: #e8edff; color: #669;">
+              {!Change_Request__c.Account_Name__c}
+          </td>
+           <td style="background-color: #e8edff; color: #669;">
+              {!Change_Request__c.Account_Name_Reference__c}
+          </td>
+      </tr>
+      <tr>
+          <td style="background-color: #e8edff; color: #669;">
+              Contact First Name:
+          </td>
+          <td style="background-color: #e8edff; color: #669;">
+              {!Change_Request__c.Contact_First_Name__c}
+          </td>
+          <td style="background-color: #e8edff; color: #669;">
+              {!Change_Request__c.Contact_First_Name_Reference__c}
+          </td>
+      </tr>
+      <tr>
+          <td style="background-color: #e8edff; color: #669;">
+              Contact Last Name:
+          </td>
+          <td style="background-color: #e8edff; color: #669;">
+              {!Change_Request__c.Contact_Last_Name__c} 
+          </td>
+          <td style="background-color: #e8edff; color: #669;">
+              {!Change_Request__c.Contact_Last_Name_Reference__c}
+          </td>
+      </tr>
+      <tr>
+          <td style="background-color: #e8edff; color: #669;">
+              Contact Email:
+          </td>
+          <td style="background-color: #e8edff; color: #669;">
+              {!Change_Request__c.Contact_Email__c}
+          </td>
+          <td style="background-color: #e8edff; color: #669;">
+              {!Change_Request__c.Contact_Email_Reference__c}
+          </td>
+      </tr>
+      <tr>
+          <td style="background-color: #e8edff; color: #669;">
+              Account Billing City:
+          </td>
+          <td style="background-color: #e8edff; color: #669;">
+              {!Change_Request__c.Account_Billing_City__c}
+          </td>
+          <td style="background-color: #e8edff; color: #669;">
+             {!Change_Request__c.Account_Billing_City_Reference__c}
+          </td>
+      </tr>
+      <tr>
+          <td style="background-color: #e8edff; color: #669;">
+              Account Billing Street:
+          </td>
+          <td style="background-color: #e8edff; color: #669;">
+              {!Change_Request__c.Account_Billing_Street__c}
+          </td>
+          <td style="background-color: #e8edff; color: #669;">
+              {!Change_Request__c.Account_Billing_Street_Reference__c}
+         </td>
+      </tr>
+      <tr>
+          <td style="background-color: #e8edff; color: #669;">
+              Account Billing State:
+          </td>
+          <td style="background-color: #e8edff; color: #669;">
+              {!Change_Request__c.Account_Billing_State__c}
+          </td>
+          <td style="background-color: #e8edff; color: #669;">
+              {!Change_Request__c.Account_Billing_State_Reference__c}
+          </td>
+      </tr>
+      <tr>
+          <td style="background-color: #e8edff; color: #669;">
+              Account Postal Code:
+          </td>
+          <td style="background-color: #e8edff; color: #669;">
+              {!Change_Request__c.Account_PostalCode__c}
+          </td>
+          <td style="background-color: #e8edff; color: #669;">
+              {!Change_Request__c.Account_Postal_Code_Reference__c}
+          </td>
+      </tr>
+      <tr>
+          <td style="background-color: #e8edff; color: #669;">
+              Account Website:
+          </td>
+          <td style="background-color: #e8edff; color: #669;">
+              {!Change_Request__c.Account_Website__c}
+          </td>
+          <td style="background-color: #e8edff; color: #669;">
+              {!Change_Request__c.Account_Website_Reference__c}
+          </td>
+      </tr>
+      </table><br> <br> 
+ 
+
+Here is the link to approve: {!ApprovalRequest.External_URL}
+<br>
+Thank you

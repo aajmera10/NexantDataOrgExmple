@@ -1,0 +1,26 @@
+<aura:component description="SubscriptionPopUp"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,force:lightningQuickAction,forceCommunity:availableForAllPageTypes"
+                access="global" controller="SubscriptionPopUpController">
+    <aura:attribute name="applicationId" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+
+    <section role="dialog" tabindex="-1" aria-label="Meaningful description of the modal content"
+             aria-modal="true" aria-describedby="modal-content-id-1"
+             class="slds-modal slds-fade-in-open slds-modal--medium slds-align-content-center"
+             style="top: 20%">
+        <div class="slds-modal__container" style="height: 25em; width: 60em">
+            <header class="slds-modal__header">
+                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{!$Label.c.Subscription_Suggestion_Header}</h2>
+            </header>
+            <div class="slds-modal__content slds-p-around_medium slds-align-content-center" id="modal-content-id-1">
+                <p>{!$Label.c.Subscription_Suggestion}</p>
+            </div>
+            <footer class="slds-modal__footer">
+                <lightning:button class="slds-button slds-button_neutral" type="button" label="Stay standard"
+                                  onclick="{!c.stayStandard}"/>
+                <c:ManageSubscriptionButton/>
+            </footer>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</aura:component>
