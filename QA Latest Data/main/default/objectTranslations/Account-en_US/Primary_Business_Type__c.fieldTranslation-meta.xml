@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
-    <help><!-- The application type that is being selected while signing up. --></help>
-    <label><!-- Application Type --></label>
-    <name>Primary_Business_Type__c</name>
-</CustomFieldTranslation>

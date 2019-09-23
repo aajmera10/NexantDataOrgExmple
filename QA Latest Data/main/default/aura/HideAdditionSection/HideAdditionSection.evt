@@ -1,6 +1,0 @@
-<!--
- - Created by jbUser on 7/27/2018.
- -->
-
-<aura:event type="APPLICATION" description="HideAdditionSection">
-</aura:event>

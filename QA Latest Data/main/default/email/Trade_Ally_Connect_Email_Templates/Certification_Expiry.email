@@ -1,9 +1,0 @@
-<html>
-    <body>
-        This is to notify you that your certification is about to expire. </br>
-                    User : <em>{!User.Username}</em></br>
-        Certification Number : <em>{!Certification__c.Certification_Number__c}</em></br>
-             Expiry Date : <em>{!Certification__c.Expiry_Date__c}</em></br>
-      Please review and upload your latest certification certificates to avoid being delisted.</br>
-    </body>
-</html>

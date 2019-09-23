@@ -1,7 +1,0 @@
-<aura:component controller="ExternalLinkController"
-                implements="forceCommunity:availableForAllPageTypes,lightning:actionOverride,flexipage:availableForAllPageTypes,force:hasRecordId" 
-                access="global">
-    <div class="slds-button-group" role="group">
-          <input type="button" class="slds-button slds-button_brand" onclick="{!c.getExternalLink}" value="My Projects" />
-     </div>
-</aura:component>

@@ -1,3 +1,0 @@
-<design:component>
-	<design:attribute name="defaultAccountId" label="Trade Ally Id" description="Trade Ally Id" />
-</design:component>

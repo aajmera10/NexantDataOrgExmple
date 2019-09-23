@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>Maps trade ally types with the tabs available on the application page.</description>
-    <label>Trade Ally Type – Application Stages map</label>
-    <pluralLabel>Trade Ally Type – Application Stages map</pluralLabel>
-    <visibility>Public</visibility>
-</CustomObject>

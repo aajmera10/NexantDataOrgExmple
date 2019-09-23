@@ -1,9 +1,0 @@
-<html>
-    <body>
-        This is to notify you that your license is about to expire. </br>
-                    User : <em>{!User.Username}</em></br>
-        License Number : <em>{!License__c.License_Number__c}</em></br>
-             Expiry Date : <em>{!License__c.Expiry_Date__c}</em></br>
-      Please review and upload your latest license certificates to avoid being delisted.</br>
-    </body>
-</html>

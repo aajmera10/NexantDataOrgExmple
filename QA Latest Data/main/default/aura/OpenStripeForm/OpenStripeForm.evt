@@ -1,3 +1,0 @@
-<aura:event type="APPLICATION" description="OpenStripeForm">
-    <aura:attribute name="subscriptionId" type="String"/>
-</aura:event>

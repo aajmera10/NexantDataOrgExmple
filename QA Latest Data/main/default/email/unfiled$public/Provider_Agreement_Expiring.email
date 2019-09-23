@@ -1,6 +1,0 @@
-Dear {!Account.Name},<br/><br/>
-    
-The Efficiency Works Service Provider agreement for {!01If4000001Goc5.Name} we have on file will expire in 10 days.  Please use this link <a href="$siteurl">{!Site.Name}</a> to review and sign the latest Service Provider Agreement.</br></br>
-If you have questions regarding this, please contact Efficiency Works.  You may also reply to this e-mail.<br/><br/>
-Regards<br/><br/>
-Efficiency Works Team

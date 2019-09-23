@@ -1,7 +1,0 @@
-<design:component label="Start Application">
-    <design:attribute name="applicationId" label="Application Id" description="Application Id" />
-	<design:attribute name="tradeAllyId" label="Trade Ally Id" description="Trade Ally Id" />
-	<design:attribute name="numberOfRowsToDisplay" label="Number Of Rows" description="Number Of Rows"/>
-    <design:attribute name="documentUploadErrorMessage" label="Document Upload Error Message" description="" />
-    <design:attribute name="otherDocumentUploadErrorMessage" label="Error Message for Other Document Upload" />
-</design:component>

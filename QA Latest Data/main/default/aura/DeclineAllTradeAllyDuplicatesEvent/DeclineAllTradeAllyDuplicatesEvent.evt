@@ -1,6 +1,0 @@
-<aura:event type="APPLICATION" access="global" >
-
-	<!--Attributes-->
-	<aura:attribute name="selfRegisterTradeAllyWrapper" type="SelfRegisterTradeAllyWrapper" default="" />
-
-</aura:event>
