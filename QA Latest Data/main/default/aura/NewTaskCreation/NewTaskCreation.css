@@ -1,0 +1,35 @@
+.THIS .checkboxes{
+	padding-bottom: 3px;
+}
+
+.THIS .checkboxes input[type="checkbox"]{
+	display: inline-block;
+    margin-right: 5px;
+}
+
+.THIS.logsContainer .isAlliesFalse p.title{
+	font-size: 18px;
+	padding-bottom: 15px;
+	text-align: center;
+}
+
+.THIS.logsContainer .isAlliesFalse .slds-button-group{
+	padding-top: 15px;
+	text-align: center;
+}
+
+.THIS.logsContainer .isAlliesFalse .slds-button-group input{
+	border-radius: .25rem .25rem .25rem .25rem !important;
+	margin: 0 5px;
+}
+
+.THIS table tr td{
+	text-align:left;
+	width: 75%;
+}
+
+.THIS table tr td:first-child{
+	text-align:right;
+	width: 25%;
+	padding-right: 15px;
+}

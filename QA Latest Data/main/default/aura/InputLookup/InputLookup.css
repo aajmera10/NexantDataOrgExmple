@@ -1,0 +1,57 @@
+.THIS .btnSearch {
+    background-color: #4eb1cb;
+    border: 0;
+    width: 20px;
+    height: 1.32rem;
+    position: absolute;
+    border-radius: 0 3px 3px 0;
+    z-index: 9;
+}
+.THIS .searchIcon {
+    width: 10px;
+    position: absolute;
+    margin-top: -5px;
+    margin-left: -5px;
+}
+.THIS .select {
+    float: left;
+    height: 1.35rem;
+    margin-left: 2rem;
+}
+.THIS .inputWrap {
+    float: left;
+}
+
+.THIS{
+    position: relative;
+}
+
+.THIS .clear{
+    clear: both;
+}
+
+.THIS .openedList{
+    border: 1px solid rgb(212, 212, 212);
+    position: absolute;
+    top: 35px;
+    background: #fff;
+    z-index: 999;
+    max-height: 240px;
+    overflow-y: auto;
+    width: auto;
+    max-width:100%;
+}
+
+.THIS .openedList div{
+    padding: 5px;
+    cursor: pointer;
+    min-width: 200px;
+}
+
+.THIS .openedList div:hover{
+    background: rgb(212, 212, 212);
+}
+
+.THIS .hidden{
+    display: none;
+}

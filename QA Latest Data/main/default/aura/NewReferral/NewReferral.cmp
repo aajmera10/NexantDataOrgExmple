@@ -1,0 +1,54 @@
+<aura:component>
+
+    <aura:attribute name="newReferral" type="Object"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <div>
+        New Referral
+    </div>
+    <div>
+        Customer Information
+    </div>
+
+    First name*: 
+
+    <lightning:input value="{!v.newReferral.FirstName}"/>
+
+    Customer number*:
+
+    Account number*:
+
+    Address 1*:
+
+    MailingCity:
+    <lightning:input value="{!v.newReferral.MailingCity}"/>
+
+    MailingState:
+    <lightning:input value="{!v.newReferral.MailingState}"/>
+
+    MailingPostalCode:
+    <lightning:input value="{!v.newReferral.MailingPostalCode}"/>
+
+    Address 2*:
+    OtherCity:
+    <lightning:input value="{!v.newReferral.OtherCity}"/>
+
+    OtherState:
+    <lightning:input value="{!v.newReferral.OtherState}"/>
+
+    OtherPostalCode:
+    <lightning:input value="{!v.newReferral.OtherPostalCode}"/>
+
+    Phone number*:
+	<lightning:input value="{!v.newReferral.Phone}"/>
+
+    Last name*:
+    <lightning:input value="{!v.newReferral.LastName}"/>
+
+    Site number*:
+
+    Email address:
+    <lightning:input value="{!v.newReferral.Email}"/>
+
+</aura:component>

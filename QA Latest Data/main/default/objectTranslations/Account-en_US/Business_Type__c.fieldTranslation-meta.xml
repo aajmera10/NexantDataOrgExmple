@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Business Types --></label>
+    <name>Business_Type__c</name>
+    <picklistValues>
+        <masterLabel>Contracted Vendor</masterLabel>
+        <translation><!-- Contracted Vendor --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Contractor</masterLabel>
+        <translation><!-- Contractor --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Irrigation</masterLabel>
+        <translation><!-- Irrigation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Retrofit</masterLabel>
+        <translation><!-- Retrofit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Trade Pro</masterLabel>
+        <translation><!-- Trade Pro --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

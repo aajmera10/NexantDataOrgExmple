@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Subuser_Approved__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Field required to put a condition for Resources and Landing Page in the &#39;All Communities&#39;</description>
+    <externalId>false</externalId>
+    <label>Subuser Approved</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

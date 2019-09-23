@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Business_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Business Types</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Contractor</fullName>
+                <default>false</default>
+                <label>Contractor</label>
+            </value>
+            <value>
+                <fullName>Trade Pro</fullName>
+                <default>false</default>
+                <label>Trade Pro</label>
+            </value>
+            <value>
+                <fullName>Contracted Vendor</fullName>
+                <default>false</default>
+                <label>Contracted Vendor</label>
+            </value>
+            <value>
+                <fullName>Irrigation</fullName>
+                <default>false</default>
+                <label>Irrigation</label>
+            </value>
+            <value>
+                <fullName>Retrofit</fullName>
+                <default>false</default>
+                <label>Retrofit</label>
+            </value>
+            <value>
+                <fullName>Consultant</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Consultant</label>
+            </value>
+            <value>
+                <fullName>Design-Build Firm</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Design-Build Firm</label>
+            </value>
+            <value>
+                <fullName>Distribution / Wholesaler</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Distribution / Wholesaler</label>
+            </value>
+            <value>
+                <fullName>Energy Managment / DR</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Energy Managment / DR</label>
+            </value>
+            <value>
+                <fullName>Engineering Services</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Engineering Services</label>
+            </value>
+            <value>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Manufacturing</label>
+            </value>
+            <value>
+                <fullName>Retailer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Retailer</label>
+            </value>
+            <value>
+                <fullName>Supplier</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Supplier</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

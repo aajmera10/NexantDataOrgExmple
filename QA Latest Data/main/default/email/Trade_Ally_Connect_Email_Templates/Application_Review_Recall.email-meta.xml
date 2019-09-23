@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email sent when trade ally submits application with missing information that needs to be fixed before it can be approved.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Nexant_Letter_Head</letterhead>
+    <name>Application Review - Recall</name>
+    <style>freeForm</style>
+    <subject>Application Request needs more Information to be Approved</subject>
+    <textOnly>Hello {!Approval_Requesting_User.Name}.
+
+This is to notify you that your Nexant Trade Ally Application is missing the following information:
+
+
+Approver&#39;s Comment: {!ApprovalRequest.Comments}
+
+Application Name: {!Application__c.Name}
+
+Date Created: {!Application__c.CreatedDate}
+
+Created by: {!Application__c.CreatedBy}
+
+Last Modified Date: {!Application__c.LastModifiedDate}
+
+Last Modified By: {!Application__c.LastModifiedBy}
+
+We will review your application again after the requested information is provided.
+
+Thank you,
+
+Nexant Trade Ally Network.
+
+Login to the Community - https://tradeally-qa-edition.force.com/tradeally/s/login</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

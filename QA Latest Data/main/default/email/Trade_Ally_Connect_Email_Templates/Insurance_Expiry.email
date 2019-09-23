@@ -1,0 +1,9 @@
+<html>
+    <body>
+        This is to notify you that your insurance is about to expire. </br>
+                    User : {!User.Username}<em></em></br>
+        Insurance Number : <em>{!Insurance__c.TA_Insurance_Id__c}</em></br>
+             Expiry Date : <em>{!Insurance__c.Expiry_Date__c}</em></br>
+      Please review and upload your latest insurance certificates to avoid being delisted.</br>
+    </body>
+</html>

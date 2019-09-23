@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Service_Type__c</fullName>
+    <description>Deprecated in favor of field Service_Types__c, as it will be a multi value text from DSMC.</description>
+    <externalId>false</externalId>
+    <label>Service Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Water</fullName>
+                <default>false</default>
+                <label>Water</label>
+            </value>
+            <value>
+                <fullName>Electric</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Electric</label>
+            </value>
+            <value>
+                <fullName>Gas</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Gas</label>
+            </value>
+            <value>
+                <fullName>Renewable</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Renewable</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

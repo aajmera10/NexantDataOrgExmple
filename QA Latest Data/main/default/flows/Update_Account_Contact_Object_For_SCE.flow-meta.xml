@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <decisions>
+        <description>Check if accountId is not null then update account object</description>
+        <name>accountid_is_not_null</name>
+        <label>accountid is not null</label>
+        <locationX>75</locationX>
+        <locationY>271</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Accountid_Not_null</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varChangeRequestAccountId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>update_Account_Object_with_new_values_from_change_request_object</targetReference>
+            </connector>
+            <label>Accountid Not null</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Update Contact object when contact ID is not null</description>
+        <name>check_contact_ID_not_null</name>
+        <label>check contact ID not null</label>
+        <locationX>635</locationX>
+        <locationY>211</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>contact_Id_not_null</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>varChangeRequestContactId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>varChangeRequestContactId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Contact_Object</targetReference>
+            </connector>
+            <label>contact Id not null</label>
+        </rules>
+    </decisions>
+    <description>This is used to update account and contact object  fro SCE Utility</description>
+    <interviewLabel>Update Account &amp; Contact Object For SCE {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Update Account &amp; Contact Object For SCE</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <description>This is used to update the account object with new values from change request object based on account id</description>
+        <name>update_Account_Object_with_new_values_from_change_request_object</name>
+        <label>update Account Object with new values from change request object</label>
+        <locationX>349</locationX>
+        <locationY>213</locationY>
+        <connector>
+            <targetReference>check_contact_ID_not_null</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varChangeRequestAccountId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>BillingCity</field>
+            <value>
+                <elementReference>varChangeRequestNewBillingCity</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>BillingPostalCode</field>
+            <value>
+                <elementReference>varChangeRequestPostCode</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>BillingState</field>
+            <value>
+                <elementReference>varChangeRequestNewBillingState</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>BillingStreet</field>
+            <value>
+                <elementReference>varChangeRequestNewBillingStreet</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>varChangeRequestNewAccountname</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Website</field>
+            <value>
+                <elementReference>varChangeRequestNewAccountWebsite</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Account</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update Contact object when contact Id is not null</description>
+        <name>Update_Contact_Object</name>
+        <label>Update Contact Object</label>
+        <locationX>442</locationX>
+        <locationY>362</locationY>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varChangeRequestContactId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Email</field>
+            <value>
+                <elementReference>varChangeRequestEmail</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>FirstName</field>
+            <value>
+                <elementReference>varChangeRequestFirstName</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>LastName</field>
+            <value>
+                <elementReference>varChangeRequestContactLastName</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Contact</object>
+    </recordUpdates>
+    <startElementReference>accountid_is_not_null</startElementReference>
+    <status>Active</status>
+    <variables>
+        <description>This is captured from process builder accountid</description>
+        <name>varChangeRequestAccountId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>This is used to capture the change request ContactID based on which contact object needs to be updated</description>
+        <name>varChangeRequestContactId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>This is used to capture the changeRequest Contact last Name</description>
+        <name>varChangeRequestContactLastName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>This is used to capture the new value of email address of change request object</description>
+        <name>varChangeRequestEmail</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>This is used to capture the change request firstname</description>
+        <name>varChangeRequestFirstName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>This is used to capture the new account name from change request object</description>
+        <name>varChangeRequestNewAccountname</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>This is used to capture the new website name from  change request object</description>
+        <name>varChangeRequestNewAccountWebsite</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>This is used to capture new billing city in account object from change request object</description>
+        <name>varChangeRequestNewBillingCity</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>This is used to capture new billing state in account object</description>
+        <name>varChangeRequestNewBillingState</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>This is used to capture the new billing street from change request object and update account object</description>
+        <name>varChangeRequestNewBillingStreet</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>This is used to capture the new post code from change request and update  in Account object</description>
+        <name>varChangeRequestPostCode</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

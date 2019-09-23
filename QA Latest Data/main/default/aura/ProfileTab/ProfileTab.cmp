@@ -1,0 +1,26 @@
+<aura:component controller="ProfileTabController"
+                implements="forceCommunity:availableForAllPageTypes" 
+                access="global">
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="profileTabInfoWrapper" type="Object" />
+
+    <div>
+        <p>
+            All Office(s)
+            <input type="button" value="+ Add Office" onclick="{!c.addOffice}" />
+            <input type="button" value="+ Add Contact" onclick="{!c.addOffice}" />
+            <input type="button" value="+ Add Address" onclick="{!c.addOffice}" />
+        </p>
+        <img src="/tradeally/servlet/servlet.FileDownload?file=00Pf4000004t7dUEAQ"/>
+        <aura:iteration items="{!v.profileTabInfoWrapper.allAccountsInfo}" var="accountWrapper" indexVar="positionA">
+            <p>{!accountWrapper.office.AccountNumber+' '+accountWrapper.office.Name+'. '+accountWrapper.isPrimary}</p>
+            <table>
+                <aura:iteration items="{!accountWrapper.reps}" var="rep" indexVar="positionR">
+                    <tr>
+                        <td>{!rep.Name}</td>
+                    </tr>
+                </aura:iteration>
+            </table>
+        </aura:iteration>
+    </div>
+</aura:component>

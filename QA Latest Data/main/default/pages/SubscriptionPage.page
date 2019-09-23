@@ -1,0 +1,163 @@
+<apex:page id="SubscriptionPage" showHeader="false" sidebar="false" controller="TradeAllySubscriptionController">
+
+    <apex:slds />
+    <apex:includeLightning />
+
+    <div id="lightning">
+        <h1 class="slds-text-heading_large">
+            Subscription
+        </h1>
+    </div>
+
+    <head>
+        <style type="text/css">
+            .StripeElement {
+                background-color: white;
+                height: 40px;
+                padding: 10px 12px;
+                border-radius: 4px;
+                border: 1px solid transparent;
+                box-shadow: 0 1px 3px 0 #e6ebf1;
+                -webkit-transition: box-shadow 150ms ease;
+                transition: box-shadow 150ms ease;
+            }
+
+            .StripeElement--focus {
+                box-shadow: 0 1px 3px 0 #cfd7df;
+            }
+
+            .StripeElement--invalid {
+                border-color: #fa755a;
+            }
+
+            .StripeElement--webkit-autofill {
+                background-color: #fefde5 !important;
+            }
+            .button {
+                margin: 5px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h2>
+            Select Your Plan
+        </h2>
+    <script src="https://js.stripe.com/v3/"></script>
+    <div id="form" style="display: none">
+        <section role="dialog" tabindex="-1" aria-label="Meaningful description of the modal content"
+                 aria-modal="true" aria-describedby="modal-content-id-1"
+                 class="slds-modal slds-fade-in-open slds-modal--small">
+            <div class="slds-modal__container">
+                <div class="slds-modal__content slds-p-around--small"
+                     id="modal-content-id-1">
+                    <form action="" method="post" id="payment-form" class="slds-align-content-center">
+                        <div class="form-row slds-text-align--center">
+                            <label for="card-element" class="slds-text-heading_small">
+                                Credit or debit card
+                            </label>
+                            <div id="card-element">
+                                <!-- A Stripe Element will be inserted here. -->
+                            </div>
+                            <button style="float: right; margin: 5px" class="slds-button slds-button_success">Submit Payment</button>
+
+                            <button style="float: right; margin: 5px" class="slds-button slds-button_neutral"
+                                    onclick="
+                                     var form = document.getElementById('form');
+                                     form.style.display = 'none';"
+                            >Cancel</button>
+                            <!-- Used to display form errors. -->
+                            <div id="card-errors" role="alert" class="slds-text-heading_small" style="color: red"></div>
+                        </div>
+                    </form>
+                </div>
+                <div class="slds-modal__content slds-p-around--small"
+                     id="modal-content-id-2">
+                     <a href="https://stripe.com/" target="_blank"><apex:image url="{!$Resource.stripeBadge}" width="119" height="26"/></a>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>
+
+    <script>
+        $Lightning.use("c:TradeAllySubscriptionApp", function () {
+            $Lightning.createComponent("c:TradeAllySubscription",
+                {},
+                "lightning",
+                function (cmp) {
+                    $A.eventService.addHandler({"event": "c:OpenStripeForm", "handler": visualForceFunction});
+                }
+            );
+        });
+        var activeSubscriptionId;
+        var visualForceFunction = function (event) {
+            activeSubscriptionId = event.getParam("subscriptionId");
+            var form = document.getElementById('form');
+            form.style.display = 'block';
+        };
+
+        var publicKey = '{!publicKey}';
+        var stripe = Stripe(publicKey);
+        var elements = stripe.elements();
+        var style = {
+            base: {
+                color: '#32325d',
+                lineHeight: '18px',
+                fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+                fontSmoothing: 'antialiased',
+                fontSize: '16px',
+                '::placeholder': {
+                    color: '#aab7c4'
+                }
+            },
+            invalid: {
+                color: '#fa755a',
+                iconColor: '#fa755a'
+            }
+        };
+        var card = elements.create('card', {style: style});
+        card.mount('#card-element');
+        card.addEventListener('change', function (event) {
+            var displayError = document.getElementById('card-errors');
+            if (event.error) {
+                displayError.textContent = event.error.message;
+            } else {
+                displayError.textContent = '';
+            }
+        });
+
+        var form = document.getElementById('payment-form');
+        var token;
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            stripe.createToken(card).then(function (result) {
+                if (result.error) {
+                    var errorElement = document.getElementById('card-errors');
+                    errorElement.textContent = result.error.message;
+                } else {
+                    if(token !== result.token.id) {
+                        token = result.token.id;
+                        var lightning = document.getElementById('lightning');
+                        lightning.innerHTML = '';
+                        $Lightning.use("c:TradeAllySubscriptionApp", function () {
+                            $Lightning.createComponent("c:TradeAllySubscription",
+                                {
+                                    stripeToken: token,
+                                    activeSubscriptionId: activeSubscriptionId
+                                },
+                                "lightning",
+                                function (cmp) {
+                                    var form = document.getElementById('form');
+                                    form.style.display = 'none';
+                                    token ='';
+                                }
+                            );
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+    </body>
+</apex:page>

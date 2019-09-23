@@ -1,0 +1,56 @@
+.THIS .slds-tabs_scoped__content{
+	/*border-top: 1px solid #d4d4d4;
+	border-radius: 4px;*/
+}
+
+.THIS lightning-primitive-icon{
+	margin-right: 10px;
+}
+
+.THIS .slds-card table td{
+    width: 50%;
+    vertical-align: top;
+    padding-right: 10px;
+}
+
+.THIS .slds-card table td{
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    word-wrap: break-word;
+}
+
+.THIS .slds-card table td .uiOutputTextArea{
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    word-wrap: break-word;
+}
+
+.THIS .slds-button-group{
+    display: block;
+    text-align: center;
+    padding-top: 20px;
+    padding-top: 5px;
+    padding-bottom: 15px;
+}
+
+.THIS .attachmentsWrapper{
+	padding: 10px 0;
+}
+
+.THIS .articleWrapper{
+	border: 1px solid rgb(212, 212, 212);
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.THIS .slds-card table{
+    table-layout: fixed;
+}
+
+.THIS.acordionContainer .slds-spinner_container {  
+  z-index: 10000;
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.5);   
+}

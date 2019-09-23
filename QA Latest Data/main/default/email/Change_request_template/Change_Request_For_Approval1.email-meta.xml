@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Change Request For Approval1</name>
+    <style>none</style>
+    <subject>A Change Request record has been submitted for approval</subject>
+    <textOnly>Hello {!User.Name},
+
+A New Change Request Record has been submitted for Approval. Please check the details below and Approve/ reject the request.
+
+Field   New Value   Previous Value
+Account Name:    {!Change_Request__c.Account_Name__c}{!Change_Request__c.Account_Name_Reference__c}
+Contact First Name:    {!Change_Request__c.Contact_First_Name__c}    {!Change_Request__c.Contact_First_Name_Reference__c}
+Contact Last Name:    {!Change_Request__c.Contact_Last_Name__c}    {!Change_Request__c.Contact_Last_Name_Reference__c}
+Contact Email:    {!Change_Request__c.Contact_Email__c}    {!Change_Request__c.Contact_Email_Reference__c}
+Account Billing City:    {!Change_Request__c.Account_Billing_City__c}    {!Change_Request__c.Account_Billing_City_Reference__c}
+Account Billing Street:    {!Change_Request__c.Account_Billing_Street__c}    {!Change_Request__c.Account_Billing_Street_Reference__c}
+Account Billing State:    {!Change_Request__c.Account_Billing_State__c}    {!Change_Request__c.Account_Billing_State_Reference__c}
+Account Postal Code:    {!Change_Request__c.Account_PostalCode__c}    {!Change_Request__c.Account_Postal_Code_Reference__c}
+Account Website:    {!Change_Request__c.Account_Website__c}    {!Change_Request__c.Account_Website_Reference__c}
+
+Here is the link to approve: {!ApprovalRequest.External_URL}
+
+
+
+Thank you</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>
